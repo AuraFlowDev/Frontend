@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AuraFlow – Remove Image Gap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font (Raleway) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========== RESET & BASE STYLES ========== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: #0f1c2b;
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 10;
+    }
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-right: 2rem;
+    }
+
+    /* ========== NAV (DESKTOP) ========== */
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 50%;
+      margin: 0 auto;
+      height: 55px;
+      border-radius: 999px 0 0 999px;
+      background: linear-gradient(to right, #1c7e8c, #2f5d6a);
+      padding: 0 1rem;
+    }
+    .nav-list {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-list li {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1;
+      transition: opacity 0.2s ease;
+    }
+    .nav-list li:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+    .nav-list li a {
+      color: #fff;
+    }
+    .user-icon-container-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0 1rem;
+    }
+    .user-icon-container-desktop svg {
+      width: 28px;
+      height: 28px;
+      stroke: #fff;
+      stroke-width: 2;
+    }
+
+    /* ========== MOBILE HEADER (Hamburger + User-Icon) ========== */
+    .mobile-header {
+      display: none; /* only visible on smaller widths */
+      margin-left: auto;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hamburger-icon {
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .hamburger-line {
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+    }
+    .user-icon-container-mobile {
+      width: 28px;
+      height: 28px;
+      stroke: #fff;
+      stroke-width: 2;
+      cursor: pointer;
+    }
+
+    /* ========== HERO (FULL HEIGHT) ========== */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(120deg, #1c818b 0%, #0f1c2b 70%);
+      padding: 2rem;
+    }
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-content h1 {
+      font-size: 8vh;
+      line-height: 1.1;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
+      color: #ccc;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background-color: #2bc0a6;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 1rem;
+      text-transform: uppercase;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #249987;
+      transform: translateY(-2px);
+    }
+
+    /* ========== MODALS (Login & Mobile Nav) ========== */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .modal {
+      background: #1c2b3a;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      padding: 2rem;
+      position: relative;
+      text-align: center;
+    }
+    .modal h2 {
+      margin-bottom: 1rem;
+    }
+    .modal p {
+      margin-bottom: 1.5rem;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.2rem;
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      color: #fff;
+    }
+
+    /* ========== MOBILE NAV MODAL ========== */
+    .modal-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .modal-nav-links a {
+      background: #2f5d6a;
+      display: block;
+      padding: 0.8rem 1rem;
+      border-radius: 4px;
+      font-size: 1.1rem;
+      color: #fff;
+      transition: opacity 0.3s;
+    }
+    .modal-nav-links a:hover {
+      opacity: 0.8;
+    }
+
+    /* ========== LOGIN BUTTON ========== */
+    .tiktok-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #ff0050;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .tiktok-btn:hover {
+      background: #cc0040;
+    }
+
+    /* ========== HOW IT WORKS SECTION ========== */
+    #how-it-works {
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: relative;
+      background: radial-gradient(circle at top left, #1c818b 20%, #0f1c2b 80%);
+      padding: 4rem 2rem;
+      opacity: 0; 
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    #how-it-works.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .side-heading {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+    }
+    .how-content {
+      max-width: 700px;
+      color: #d6d6d6;
+      text-align: left;
+    }
+    /*
+      Reduced the margin from 1rem to 0.5rem 
+      to reduce spacing above/below each step
+    */
+    .step {
+      font-size: 3rem;
+      margin: 0.5rem 0; 
+      line-height: 1.1;
+    }
+    .step-num {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-right: 0.5rem;
+      vertical-align: text-top;
+    }
+    .rewards-text {
+      font-size: 3rem;
+      margin: 0.5rem 0; 
+      color: #fff;
+    }
+
+    /* ========== MEDIA QUERIES ========== */
+    @media (max-width: 768px) {
+      .nav-container {
+        display: none;
+      }
+      .mobile-header {
+        display: flex;
+      }
+      .hero-content h1 {
+        font-size: 8vw;
+      }
+      .side-heading {
+        top: 1rem;
+        right: 1rem;
+        font-size: 18px;
+      }
+      .step {
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+      }
+      .rewards-text {
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">AF</div>
+
+    <!-- Desktop Nav -->
+    <div class="nav-container">
+      <ul class="nav-list">
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#features">Features</a></li>
+      </ul>
+      <div class="user-icon-container-desktop" id="open-login-modal-desktop">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="7" r="4"></circle>
+          <path d="M5.5 20c1.4-2.33 3.73-4 6.5-4s5.1 1.67 6.5 4"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+      <div class="hamburger-icon" id="open-mobile-nav-modal">
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+        <div class="hamburger-line"></div>
+      </div>
+      <svg class="user-icon-container-mobile" viewBox="0 0 24 24" fill="none" id="open-login-modal-mobile">
+        <circle cx="12" cy="7" r="4"></circle>
+        <path d="M5.5 20c1.4-2.33 3.73-4 6.5-4s5.1 1.67 6.5 4"></path>
+      </svg>
+    </div>
+  </header>
+
+  <!-- HERO (full height) -->
+  <section class="hero" id="hero-section">
+    <div class="hero-content">
+      <h1>CREATE.<br>INFLUENCE.<br>GET PAID.</h1>
+      <p>
+        Your content deserves more than just likes. With
+        <strong>AURAFLOW</strong>, you turn your creativity into real income –
+        simple, fair, and made for creators like you.
+      </p>
+      <a class="cta-button" id="open-login-modal-btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <h2 class="side-heading">HOW IT WORKS</h2>
+
+    <div class="how-content">
+      <!-- 1.) Example -->
+      <div class="step">
+        <span class="step-num">1.)</span>
+        LOGIN WITH<br>YOUR TIKTOK
+      </div>
+
+      <!-- 2.) Example: Inserted image with minimal gap above it -->
+      <div class="step">
+        <span class="step-num">2.)</span>
+        <img src="img/Crypto_01.svg"
+             alt="Crypto Payment"
+             style="vertical-align: middle; display: inline-block; max-width: 400px; margin: 0; padding: 0;">
+      </div>
+
+      <!-- 3.) Rewards -->
+      <div class="step rewards-text">
+        GET YOUR<br>REWARDS.
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" style="padding:4rem; background:#0f2f48; text-align:center;">
+    <h2>Features</h2>
+    <p>Present your awesome features here.</p>
+  </section>
+
+  <!-- Mobile Nav Modal -->
+  <div class="modal-overlay" id="mobile-nav-modal">
+    <div class="modal">
+      <button class="close-btn" id="close-mobile-nav-modal">x</button>
+      <h2>Menu</h2>
+      <div class="modal-nav-links">
+        <a href="#how-it-works" id="close-mobile-nav-modal-link">How It Works</a>
+        <a href="#features" id="close-mobile-nav-modal-link2">Features</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal">
+      <button class="close-btn" id="close-login-modal-btn">x</button>
+      <h2>Login</h2>
+      <p>Log in now to start creating and monetizing your content!</p>
+      <a class="tiktok-btn" href="#">Login with TikTok</a>
+    </div>
+  </div>
+
+  <script>
+    /* ========== MOBILE NAV MODAL ========== */
+    const openMobileNav = document.getElementById('open-mobile-nav-modal');
+    const mobileNavModal = document.getElementById('mobile-nav-modal');
+    const closeMobileNav = document.getElementById('close-mobile-nav-modal');
+    const modalNavLink1 = document.getElementById('close-mobile-nav-modal-link');
+    const modalNavLink2 = document.getElementById('close-mobile-nav-modal-link2');
+
+    openMobileNav.addEventListener('click', () => {
+      mobileNavModal.style.display = 'flex';
+    });
+    closeMobileNav.addEventListener('click', () => {
+      mobileNavModal.style.display = 'none';
+    });
+    modalNavLink1.addEventListener('click', () => {
+      mobileNavModal.style.display = 'none';
+    });
+    modalNavLink2.addEventListener('click', () => {
+      mobileNavModal.style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === mobileNavModal) {
+        mobileNavModal.style.display = 'none';
+      }
+    });
+
+    /* ========== LOGIN MODAL ========== */
+    const loginModal = document.getElementById('login-modal');
+    const closeLoginModalBtn = document.getElementById('close-login-modal-btn');
+
+    const openLoginDesktopIcon = document.getElementById('open-login-modal-desktop');
+    const openLoginMobileIcon = document.getElementById('open-login-modal-mobile');
+    const openLoginCtaBtn = document.getElementById('open-login-modal-btn');
+
+    function openLoginModal() {
+      loginModal.style.display = 'flex';
+    }
+    if (openLoginDesktopIcon) openLoginDesktopIcon.addEventListener('click', openLoginModal);
+    if (openLoginMobileIcon) openLoginMobileIcon.addEventListener('click', openLoginModal);
+    if (openLoginCtaBtn) openLoginCtaBtn.addEventListener('click', openLoginModal);
+
+    closeLoginModalBtn.addEventListener('click', () => {
+      loginModal.style.display = 'none';
+    });
+    window.addEventListener('click', (e) => {
+      if (e.target === loginModal) {
+        loginModal.style.display = 'none';
+      }
+    });
+
+    /* ========== HOW IT WORKS – Intersection Observer ========== */
+    const heroSection = document.getElementById('hero-section');
+    const howItWorksSection = document.getElementById('how-it-works');
+
+    // When hero leaves the viewport => show how-it-works
+    const options = {
+      root: null,
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+          howItWorksSection.classList.add('visible');
+        }
+      });
+    }, options);
+
+    observer.observe(heroSection);
+  </script>
+</body>
+</html>
