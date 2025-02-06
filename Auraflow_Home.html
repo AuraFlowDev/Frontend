@@ -4,503 +4,11 @@
   <meta charset="UTF-8">
   <title>AuraFlow – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Google Font (Raleway) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    /* ========== GLOBAL & SCROLL SNAP ========== */
-    html {
-      scroll-behavior: smooth;
-      scroll-snap-type: y mandatory;
-    }
-    body {
-      font-family: 'Raleway', sans-serif;
-      background: linear-gradient(to right, #1c818b, #0f1c2b);
-      color: #fff;
-      overflow-x: hidden;
-      margin: 0;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-    }
-    /* ========== RESET & BASE STYLES ========== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    /* ========== HEADER ========== */
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding: 1rem 2rem;
-      z-index: 10;
-    }
-    .logo {
-      font-size: 1.6rem;
-      font-weight: 800;
-      margin-right: 2rem;
-    }
-    /* ========== NAV (DESKTOP) ========== */
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 50%;
-      margin: 0 auto;
-      height: 55px;
-      border-radius: 999px 0 0 999px;
-      background: linear-gradient(to right, #1c7e8c, #2f5d6a);
-      padding: 0 1rem;
-    }
-    .nav-list {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-    .nav-list li {
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1;
-      transition: opacity 0.2s ease;
-    }
-    .nav-list li:hover {
-      opacity: 0.8;
-      cursor: pointer;
-    }
-    .nav-list li a {
-      color: #fff;
-    }
-    .user-icon-container-desktop {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0 1rem;
-    }
-    .user-icon-container-desktop svg {
-      width: 28px;
-      height: 28px;
-      stroke: #fff;
-      stroke-width: 2;
-    }
-    /* ========== MOBILE HEADER ========== */
-    .mobile-header {
-      display: none;
-      margin-left: auto;
-      align-items: center;
-      gap: 1rem;
-    }
-    .hamburger-icon {
-      width: 28px;
-      height: 28px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .hamburger-line {
-      height: 3px;
-      background: #fff;
-      border-radius: 2px;
-    }
-    .user-icon-container-mobile {
-      width: 28px;
-      height: 28px;
-      stroke: #fff;
-      stroke-width: 2;
-      cursor: pointer;
-    }
-    /* ========== HERO ========== */
-    .hero {
-      min-height: 100vh;
-      scroll-snap-align: start;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .hero-content h1 {
-      font-size: 8vh;
-      line-height: 1.1;
-      font-weight: 900;
-      margin-bottom: 1rem;
-    }
-    .hero-content p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      color: #ccc;
-    }
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background-color: #2bc0a6;
-      color: #fff;
-      border-radius: 4px;
-      font-weight: 800;
-      font-size: 1rem;
-      text-transform: uppercase;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.3s ease;
-    }
-    .cta-button:hover {
-      background-color: #249987;
-      transform: translateY(-2px);
-    }
-    /* ========== HOW IT WORKS ========== */
-    #how-it-works {
-      min-height: 100vh;
-      scroll-snap-align: start;
-      padding: 4rem 2rem;
-      background: transparent;
-      opacity: 0; 
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    #how-it-works.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .how-content {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: left;
-      color: #d6d6d6;
-    }
-    .how-content .section-title {
-      font-size: 2.8rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-      color: #fff;
-      text-transform: uppercase;
-    }
-    .steps-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .step {
-      background: rgba(0, 0, 0, 0.3);
-      padding: 1.5rem 2rem;
-      border-radius: 30px;
-      transition: transform 0.7s ease-in-out;
-    }
-    .step:hover {
-      transform: translateY(-10px);
-    }
-    .step .step-num {
-      font-size: 2.2rem;
-      font-weight: 900;
-      margin-right: 1rem;
-      color: #fff;
-    }
-    .step h4 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #fff;
-      text-transform: uppercase;
-    }
-    .step p {
-      font-size: 1.2rem;
-      line-height: 1.5;
-      color: #ccc;
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out;
-    }
-    .step:hover p {
-      opacity: 1;
-      max-height: 200px;
-    }
-    /* ========== FEATURES SECTION ========== */
-    #features {
-      min-height: 100vh;
-      scroll-snap-align: start;
-      padding: 4rem 2rem;
-      position: relative;
-    }
-    .features-container {
-      max-width: 1300px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .features-side-heading {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      font-size: 18px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-    }
-    .features-intro {
-      max-width: 700px;
-      margin-bottom: 3rem;
-    }
-    .features-intro p {
-      font-size: 1.6rem;
-      line-height: 1.4;
-      color: #d6d6d6;
-    }
-    .features-heading {
-      text-align: right;
-      margin-bottom: 4rem;
-    }
-    .features-heading h2 {
-      font-weight: 300;
-      font-size: 2.2rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-    }
-    .features-heading h2 span {
-      font-weight: 700;
-      color: #fff;
-    }
-    .feature-cards {
-      position: relative;
-      width: 100vw;
-      margin-left: calc(-50vw + 50%);
-    }
-    .feature-card {
-      position: relative;
-      border-radius: 60px;
-      background: rgba(255, 255, 255, 0.1);
-      width: 100%;
-      padding: 2.5rem 2rem 2.5rem 160px;
-      transition: transform 0.7s ease-in-out, background 0.7s ease-in-out;
-      z-index: 1;
-      overflow: hidden;
-    }
-    .feature-card + .feature-card {
-      margin-top: -40px;
-    }
-    .feature-card:hover {
-      transform: translateY(-10px);
-      z-index: 2;
-    }
-    .feature-card::before {
-      content: attr(data-number);
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #fff;
-      z-index: 2;
-    }
-    .feature-card-content h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      color: #fff;
-    }
-    .feature-card-content p {
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out;
-    }
-    .feature-card:hover .feature-card-content p {
-      opacity: 1;
-      max-height: 500px;
-    }
-    /* ========== FOOTER ========== */
-    footer {
-      scroll-snap-align: start;
-      background: linear-gradient(to right, #681b22 30%, #0f1c2b 100%);
-      padding: 2rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .footer-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-    }
-    .footer-left {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-    .placeholder-logo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: #3f060d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      color: #d66f76;
-      font-size: 1rem;
-    }
-    .footer-nav {
-      display: flex;
-      flex-direction: column;
-      font-size: 0.9rem;
-      gap: 0.3rem;
-      color: #1a1a1a;
-      font-weight: 500;
-    }
-    .footer-copy-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      align-items: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.7);
-    }
-    .privacy-links {
-      display: flex;
-      gap: 1rem;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.7);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-    .footer-right {
-      text-align: right;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-    }
-    .footer-heading {
-      font-size: 2.5rem;
-      line-height: 1.1;
-      font-weight: 900;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.9);
-      letter-spacing: 0.03em;
-    }
-    .social-links {
-      position: relative;
-      display: flex;
-      gap: 0.8rem;
-    }
-    .social-links a {
-      width: 28px;
-      height: 28px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.1);
-      transition: background 0.3s ease;
-    }
-    .social-links a:hover {
-      background: rgba(255,255,255,0.2);
-    }
-    .social-links img {
-      width: 16px;
-      height: 16px;
-    }
-    /* ========== MOBILE RESPONSIVE ========== */
-    @media (max-width: 768px) {
-      .nav-container { display: none; }
-      .mobile-header { display: flex; }
-      .hero-content h1 { font-size: 8vw; }
-      .step { font-size: 1.8rem; margin: 0.5rem 0; }
-      footer { padding: 2rem 1rem; }
-      .footer-container { flex-direction: column; gap: 1.5rem; }
-      .footer-left { align-items: flex-start; }
-      .footer-heading { font-size: 2rem; text-align: left; }
-      .social-links { position: static; margin-top: 1rem; }
-      .footer-copy-row { gap: 0.8rem; }
-      .features-side-heading { display: none; }
-      .features-intro p { font-size: 1.2rem; }
-      .features-heading h2 { text-align: center; font-size: 1.8rem; }
-      .feature-card { padding: 2rem 1rem 2rem 120px; }
-      .feature-card::before { width: 100px; font-size: 1.6rem; }
-      .feature-card + .feature-card { margin-top: 1rem; }
-    }
-    /* ========== MODAL STYLES ========== */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-    .modal {
-      background: #1c2b3a;
-      border-radius: 8px;
-      width: 90%;
-      max-width: 400px;
-      padding: 2rem;
-      position: relative;
-      text-align: center;
-    }
-    .close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.2rem;
-      background: none;
-      border: none;
-      color: #ccc;
-      cursor: pointer;
-    }
-    .close-btn:hover { color: #fff; }
-    .modal-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .modal-nav-links a {
-      background: #2f5d6a;
-      display: block;
-      padding: 0.8rem 1rem;
-      border-radius: 4px;
-      font-size: 1.1rem;
-      color: #fff;
-      transition: opacity 0.3s;
-    }
-    .modal-nav-links a:hover { opacity: 0.8; }
-    .tiktok-btn {
-      display: inline-block;
-      padding: 0.8rem 1.5rem;
-      background: #ff0050;
-      color: #fff;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-    }
-    .tiktok-btn:hover { background: #cc0040; }
-  </style>
+  <!-- Externe CSS-Datei -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HEADER -->
@@ -539,36 +47,87 @@
   <section class="hero" id="hero-section">
     <div class="hero-content">
       <h1>CREATE.<br>INFLUENCE.<br>GET PAID.</h1>
-      <p>Your content deserves more than just likes. With <strong>AURAFLOW</strong>, you turn your creativity into real income – simple, fair, and made for creators like you.</p>
+      <p>Your content deserves more than just likes. With <strong>AURAFLOW</strong> you turn your creativity into real income – simple, fair, and made for creators like you.</p>
       <a class="cta-button" id="open-login-modal-btn">Get Started</a>
     </div>
   </section>
 
   <!-- HOW IT WORKS SECTION -->
   <section id="how-it-works">
-    <div class="how-content">
-      <h2 class="section-title" style="text-transform: uppercase; color: #fff; margin-bottom: 2rem;">How It Works</h2>
-      <div class="steps-container">
-        <div class="step">
-          <span class="step-num">1.</span>
-          <h4>Connect Your TikTok</h4>
-          <p>Seamlessly link your TikTok account with Auraflow. Our secure integration ensures that your creative journey starts effortlessly.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">2.</span>
-          <h4>Automated Analytics</h4>
-          <p>Let our platform analyze your content and engagement in real time, providing you with clear insights into your performance and audience.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">3.</span>
-          <h4>Real-Time Payments</h4>
-          <p>Experience transparent monetization. Receive fair payments directly to your account with no hidden fees.</p>
-        </div>
-        <div class="step">
-          <span class="step-num">4.</span>
-          <h4>Grow Your Influence</h4>
-          <p>Leverage our data-driven tools to boost your reach and maximize your creative potential – your success is our mission.</p>
-        </div>
+    <!-- STEP 1 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <!-- Halbkreis von oben nach unten -->
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">00</div>
+        <div class="arc-label arc-label-middle">01</div>
+        <div class="arc-label arc-label-bottom">02</div>
+        <div class="big-step-num">01</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Secure Account Registration</h2>
+        <p>Begin by registering for a secure user account on our homepage. 
+           Our robust registration process safeguards your personal data while 
+           granting you full access to our comprehensive dashboard for managing 
+           your rewards.</p>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">01</div>
+        <div class="arc-label arc-label-middle">02</div>
+        <div class="arc-label arc-label-bottom">03</div>
+        <div class="big-step-num">02</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Analytics &amp; Insights</h2>
+        <p>Our powerful analytics tools track every interaction, 
+           giving you real-time insights into your performance, 
+           audience growth, and earning potential.</p>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">02</div>
+        <div class="arc-label arc-label-middle">03</div>
+        <div class="arc-label arc-label-bottom">04</div>
+        <div class="big-step-num">03</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Secure Payments</h2>
+        <p>Experience transparent monetization with real-time 
+           payouts directly to your account. No hidden fees, 
+           just fair payment for your creative work.</p>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">03</div>
+        <div class="arc-label arc-label-middle">04</div>
+        <div class="arc-label arc-label-bottom">05</div>
+        <div class="big-step-num">04</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Scale Your Influence</h2>
+        <p>Grow your reach with data-driven tools that 
+           maximize your creative potential – your success is our mission.</p>
       </div>
     </div>
   </section>
@@ -598,7 +157,7 @@
         </div>
         <div class="feature-card" data-number="02">
           <div class="feature-card-content">
-            <h3>FAST & EASY SETUP</h3>
+            <h3>FAST &amp; EASY SETUP</h3>
             <p>Quickly connect your TikTok and start earning in minutes. No hassle.</p>
           </div>
         </div>
@@ -621,7 +180,6 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-container">
-      <!-- LEFT AREA -->
       <div class="footer-left">
         <div class="placeholder-logo">LOGO</div>
         <div class="footer-nav">
@@ -632,15 +190,13 @@
           <div class="footer-copy">AURAFLOW 2025. ALL RIGHTS RESERVED</div>
           <div class="privacy-links">
             <span>PRIVACY POLICY</span>
-            <span>TERMS & CONDITIONS</span>
+            <span>TERMS &amp; CONDITIONS</span>
           </div>
         </div>
       </div>
-      <!-- RIGHT AREA -->
       <div class="footer-right">
         <div class="footer-heading">REWARDSYSTEM<br>WITH AURAFLOW</div>
       </div>
-      <!-- SOCIAL MEDIA LINKS -->
       <div class="social-links">
         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
           <img src="img/social_x.svg" alt="X (Twitter)">
@@ -700,6 +256,7 @@
     window.addEventListener('click', (e) => {
       if (e.target === mobileNavModal) { mobileNavModal.style.display = 'none'; }
     });
+    
     /* LOGIN MODAL */
     const loginModal = document.getElementById('login-modal');
     const closeLoginModalBtn = document.getElementById('close-login-modal-btn');
@@ -714,14 +271,17 @@
     window.addEventListener('click', (e) => {
       if (e.target === loginModal) { loginModal.style.display = 'none'; }
     });
-    /* HOW IT WORKS – Intersection Observer */
+    
+    /* HOW IT WORKS – Intersection Observer (für Fade-In-Effekt, optional) */
     const heroSection = document.getElementById('hero-section');
     const howItWorksSection = document.getElementById('how-it-works');
     if(heroSection && howItWorksSection) {
       const options = { root: null, threshold: 0 };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (!entry.isIntersecting) { howItWorksSection.classList.add('visible'); }
+          if (!entry.isIntersecting) {
+            howItWorksSection.classList.add('visible');
+          }
         });
       }, options);
       observer.observe(heroSection);
