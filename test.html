@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="teststyle.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <link rel="stylesheet" href="teststyle.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="steps-column">
+                <svg viewBox="0 0 300 300">
+                    <circle cx="150" cy="150" r="120" stroke="white" stroke-width="2" fill="none" />
+
+                    <!-- Punkte für die Schritte -->
+                    <circle class="step-dot" data-step="1" cx="150" cy="30" r="4" fill="white" />
+                    <circle class="step-dot" data-step="2" cx="250" cy="100" r="4" fill="white" />
+                    <circle class="step-dot" data-step="3" cx="220" cy="250" r="4" fill="white" />
+                    <circle class="step-dot" data-step="4" cx="80" cy="250" r="4" fill="white" />
+                    <circle class="step-dot" data-step="5" cx="50" cy="100" r="4" fill="white" />
+
+                    <!-- Schritttexte -->
+                    <text class="step-text active" data-step="1" x="150" y="30" text-anchor="middle">01</text>
+                    <text class="step-text" data-step="2" x="250" y="100" text-anchor="middle">02</text>
+                    <text class="step-text" data-step="3" x="220" y="250" text-anchor="middle">03</text>
+                    <text class="step-text" data-step="4" x="80" y="250" text-anchor="middle">04</text>
+                    <text class="step-text" data-step="5" x="50" y="100" text-anchor="middle">05</text>
+                </svg>
+            </div>
+            <div class="content">
+                <h1 id="step-title">Step 01</h1>
+                <p id="step-description">Description for Step 01</p>
+            </div>
+            <button id="next-step">Next</button>
+        </div>
+        <script src="testscript.js"></script>
+    </body>
+
+    </html>

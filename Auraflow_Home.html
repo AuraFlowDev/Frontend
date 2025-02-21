@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>AuraFlow – Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Google Font (Raleway) -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <!-- Externe CSS-Datei -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <!-- HEADER -->
   <header>
@@ -47,90 +50,37 @@
   <section class="hero" id="hero-section">
     <div class="hero-content">
       <h1>CREATE.<br>INFLUENCE.<br>GET PAID.</h1>
-      <p>Your content deserves more than just likes. With <strong>AURAFLOW</strong> you turn your creativity into real income – simple, fair, and made for creators like you.</p>
+      <p>Your content deserves more than just likes. With <strong>AURAFLOW</strong> you turn your creativity into real
+        income – simple, fair, and made for creators like you.</p>
       <a class="cta-button" id="open-login-modal-btn">Get Started</a>
     </div>
   </section>
 
-  <!-- HOW IT WORKS SECTION -->
+  <!-- HOW IT WORKS Section – Neu mit Halbkreis und 3 sichtbaren Markern -->
   <section id="how-it-works">
-    <!-- STEP 1 -->
-    <div class="step-section">
-      <div class="arc-container">
-        <svg class="arc" viewBox="0 0 200 200">
-          <!-- Halbkreis von oben nach unten -->
-          <path d="M200,0 A200,200 0 0 1 200,200" />
-        </svg>
-        <div class="arc-label arc-label-top">00</div>
-        <div class="arc-label arc-label-middle">01</div>
-        <div class="arc-label arc-label-bottom">02</div>
-        <div class="big-step-num">01</div>
+    <div class="how-container">
+      <!-- Linke Spalte: Halbkreis für die Schrittanzeige -->
+      <div class="steps-column">
+        <div class="arc-container">
+          <div class="marker marker-prev"></div>
+          <div class="marker marker-active"></div>
+          <div class="marker marker-next"></div>
+        </div>
       </div>
-      <div class="step-text-block">
-        <h2>Secure Account Registration</h2>
-        <p>Begin by registering for a secure user account on our homepage. 
-           Our robust registration process safeguards your personal data while 
-           granting you full access to our comprehensive dashboard for managing 
-           your rewards.</p>
-      </div>
-    </div>
 
-    <!-- STEP 2 -->
-    <div class="step-section">
-      <div class="arc-container">
-        <svg class="arc" viewBox="0 0 200 200">
-          <path d="M200,0 A200,200 0 0 1 200,200" />
-        </svg>
-        <div class="arc-label arc-label-top">01</div>
-        <div class="arc-label arc-label-middle">02</div>
-        <div class="arc-label arc-label-bottom">03</div>
-        <div class="big-step-num">02</div>
-      </div>
-      <div class="step-text-block">
-        <h2>Analytics &amp; Insights</h2>
-        <p>Our powerful analytics tools track every interaction, 
-           giving you real-time insights into your performance, 
-           audience growth, and earning potential.</p>
-      </div>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="step-section">
-      <div class="arc-container">
-        <svg class="arc" viewBox="0 0 200 200">
-          <path d="M200,0 A200,200 0 0 1 200,200" />
-        </svg>
-        <div class="arc-label arc-label-top">02</div>
-        <div class="arc-label arc-label-middle">03</div>
-        <div class="arc-label arc-label-bottom">04</div>
-        <div class="big-step-num">03</div>
-      </div>
-      <div class="step-text-block">
-        <h2>Secure Payments</h2>
-        <p>Experience transparent monetization with real-time 
-           payouts directly to your account. No hidden fees, 
-           just fair payment for your creative work.</p>
-      </div>
-    </div>
-
-    <!-- STEP 4 -->
-    <div class="step-section">
-      <div class="arc-container">
-        <svg class="arc" viewBox="0 0 200 200">
-          <path d="M200,0 A200,200 0 0 1 200,200" />
-        </svg>
-        <div class="arc-label arc-label-top">03</div>
-        <div class="arc-label arc-label-middle">04</div>
-        <div class="arc-label arc-label-bottom">05</div>
-        <div class="big-step-num">04</div>
-      </div>
-      <div class="step-text-block">
-        <h2>Scale Your Influence</h2>
-        <p>Grow your reach with data-driven tools that 
-           maximize your creative potential – your success is our mission.</p>
+      <!-- Rechte Spalte: Schrittinhalt -->
+      <div class="content-column">
+        <div class="hint">HOW IT WORKS</div>
+        <h2 class="step-title">Secure Account Registration</h2>
+        <p class="step-description">
+          Your secure account registration process ensures that your personal data is protected and that your experience
+          is seamless.
+        </p>
+        <button class="next-btn">Nächster Schritt</button>
       </div>
     </div>
   </section>
+
 
   <!-- FEATURES SECTION -->
   <section id="features">
@@ -256,7 +206,7 @@
     window.addEventListener('click', (e) => {
       if (e.target === mobileNavModal) { mobileNavModal.style.display = 'none'; }
     });
-    
+
     /* LOGIN MODAL */
     const loginModal = document.getElementById('login-modal');
     const closeLoginModalBtn = document.getElementById('close-login-modal-btn');
@@ -271,11 +221,11 @@
     window.addEventListener('click', (e) => {
       if (e.target === loginModal) { loginModal.style.display = 'none'; }
     });
-    
+
     /* HOW IT WORKS – Intersection Observer (für Fade-In-Effekt, optional) */
     const heroSection = document.getElementById('hero-section');
     const howItWorksSection = document.getElementById('how-it-works');
-    if(heroSection && howItWorksSection) {
+    if (heroSection && howItWorksSection) {
       const options = { root: null, threshold: 0 };
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -287,5 +237,7 @@
       observer.observe(heroSection);
     }
   </script>
+  <script src="script.js" defer></script>
 </body>
+
 </html>

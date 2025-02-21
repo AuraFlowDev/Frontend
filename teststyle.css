@@ -1,0 +1,74 @@
+    body {
+        font-family: 'Raleway', sans-serif;
+        background: linear-gradient(to right, #1c818b, #0f1c2b);
+        color: #fff;
+        overflow-x: hidden;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        position: relative;
+    }
+
+    .content {
+        margin-top: 20px;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        border: none;
+        background-color: white;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    svg {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .step-text {
+        font-size: 20px;
+        font-weight: bold;
+        fill: white;
+        opacity: 0.5;
+        transition: opacity 0.5s;
+    }
+
+    .step-text.active {
+        opacity: 1 !important;
+    }
+
+    /* Styling der Punkte */
+    .step-dot {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0.5;
+    }
+
+    .step-dot.active {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+
+    .steps-column {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 150px;
+        /* Hälfte der SVG-Breite */
+        height: 300px;
+        /* Höhe des SVGs */
+        overflow: hidden;
+        /* Blendet den überstehenden Teil aus */
+    }
+
+    .steps-column svg {
+        position: relative;
+        left: -150px;
+        /* Verschiebt das SVG, sodass nur die rechte Hälfte sichtbar ist */
+    }
