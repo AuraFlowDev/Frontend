@@ -11,6 +11,7 @@
     rel="stylesheet">
   <!-- Externe CSS-Datei -->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.css">
 </head>
 
 <body>
@@ -25,11 +26,32 @@
         <li><a href="Presale.html">Pre Sale</a></li>
         <li><a href="News.html">News</a></li>
       </ul>
-      <div class="user-icon-container-desktop" id="open-login-modal-desktop">
+      <div class="open-popup" id="open-popup">
         <svg viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="7" r="4"></circle>
           <path d="M5.5 20c1.4-2.33 3.73-4 6.5-4s5.1 1.67 6.5 4"></path>
         </svg>
+      </div>
+      <div class="popup-overlay" id="popup-overlay">
+        <div class="popup">
+          <div class="close-popup-btn" id="close-popup-btn">&times;</div>
+          <h1>SIGN IN</h1>
+          <h2>Login</h2>
+          <form class="login-form" action="/login" method="POST">
+            <div class="login-input">
+              <input type="email" id="email" name="email" placeholder="YOUR EMAIL" required>
+              <input type="password" id="password" name="password" placeholder="PASSWORD" required>
+              <button type="submit">SIGN IN</button>
+            </div>
+            <div class="social-login">
+              <p>OR SIGN IN WITH</p>
+              <div class="social-buttons">
+                <button type="button">APPLE</button>
+                <button type="button">GOOGLE</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <!-- Mobile Header -->
@@ -58,25 +80,80 @@
 
   <!-- HOW IT WORKS Section – Neu mit Halbkreis und 3 sichtbaren Markern -->
   <section id="how-it-works">
-    <div class="how-container">
-      <!-- Linke Spalte: Halbkreis für die Schrittanzeige -->
-      <div class="steps-column">
-        <div class="arc-container">
-          <div class="marker marker-prev"></div>
-          <div class="marker marker-active"></div>
-          <div class="marker marker-next"></div>
-        </div>
+    <!-- STEP 1 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <!-- Halbkreis von oben nach unten -->
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">00</div>
+        <div class="arc-label arc-label-middle">01</div>
+        <div class="arc-label arc-label-bottom">02</div>
+        <div class="big-step-num">01</div>
       </div>
+      <div class="step-text-block">
+        <h2>Secure Account Registration</h2>
+        <p>Begin by registering for a secure user account on our homepage.
+          Our robust registration process safeguards your personal data while
+          granting you full access to our comprehensive dashboard for managing
+          your rewards.</p>
+      </div>
+    </div>
 
-      <!-- Rechte Spalte: Schrittinhalt -->
-      <div class="content-column">
-        <div class="hint">HOW IT WORKS</div>
-        <h2 class="step-title">Secure Account Registration</h2>
-        <p class="step-description">
-          Your secure account registration process ensures that your personal data is protected and that your experience
-          is seamless.
-        </p>
-        <button class="next-btn">Nächster Schritt</button>
+    <!-- STEP 2 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">01</div>
+        <div class="arc-label arc-label-middle">02</div>
+        <div class="arc-label arc-label-bottom">03</div>
+        <div class="big-step-num">02</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Analytics &amp; Insights</h2>
+        <p>Our powerful analytics tools track every interaction,
+          giving you real-time insights into your performance,
+          audience growth, and earning potential.</p>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">02</div>
+        <div class="arc-label arc-label-middle">03</div>
+        <div class="arc-label arc-label-bottom">04</div>
+        <div class="big-step-num">03</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Secure Payments</h2>
+        <p>Experience transparent monetization with real-time
+          payouts directly to your account. No hidden fees,
+          just fair payment for your creative work.</p>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step-section">
+      <div class="arc-container">
+        <svg class="arc" viewBox="0 0 200 200">
+          <path d="M200,0 A200,200 0 0 1 200,200" />
+        </svg>
+        <div class="arc-label arc-label-top">03</div>
+        <div class="arc-label arc-label-middle">04</div>
+        <div class="arc-label arc-label-bottom">05</div>
+        <div class="big-step-num">04</div>
+      </div>
+      <div class="step-text-block">
+        <h2>Scale Your Influence</h2>
+        <p>Grow your reach with data-driven tools that
+          maximize your creative potential – your success is our mission.</p>
       </div>
     </div>
   </section>
@@ -237,7 +314,7 @@
       observer.observe(heroSection);
     }
   </script>
-  <script src="script.js" defer></script>
+  <script type="text/javascript" src="login.js" defer></script>
 </body>
 
 </html>
