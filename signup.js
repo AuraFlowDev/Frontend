@@ -18,9 +18,43 @@ form.addEventListener('submit', (e) => {
         e.preventDefault();
         error_message.innerText = errors.join(" ");
     }
+
+    // Wenn keine Fehler -> Daten ans Backend schicken
+    const payload = {
+        name: name_input.value.trim(),
+        surname: surname_input.value.trim(),
+        email: email_input.value.trim(),
+        password: password_input.value.trim()
+    };
+
+    fetch('http://localhost:8080/auth/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+        .then(response => {
+            if (!response.ok) {
+                // Falls der Server einen Fehler meldet (z.B. 400 )
+                throw new Error(`Server error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Hier kannst du den erfolgreichen Response verarbeiten
+            console.log('Erfolg:', data);
+            // z.B. weiterleiten oder Meldung anzeigen
+        })
+        .catch(error => {
+            console.error('Fehler:', error);
+            error_message.innerText = error.message;
+        });
+
+
 })
 
-showPasswordCheckbox.addEventListener('change', function() {
+showPasswordCheckbox.addEventListener('change', function () {
     if (this.checked) {
         password_input.type = 'text';
     } else {
