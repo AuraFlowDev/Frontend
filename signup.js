@@ -17,17 +17,21 @@ form.addEventListener('submit', (e) => {
     if (errors.length > 0) {
         e.preventDefault();
         error_message.innerText = errors.join(" ");
+        console.log('Fehler!');
+        return;
     }
 
     // Wenn keine Fehler -> Daten ans Backend schicken
     const payload = {
-        name: name_input.value.trim(),
-        surname: surname_input.value.trim(),
+        firstname: name_input.value.trim(),
+        lastname: surname_input.value.trim(),
         email: email_input.value.trim(),
         password: password_input.value.trim()
     };
 
-    fetch('http://localhost:8080/auth/register', {
+    console.log(name_input.value.trim()); //nur zum testen
+
+    fetch('http://167.172.165.97:80/auth/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -39,7 +43,7 @@ form.addEventListener('submit', (e) => {
                 // Falls der Server einen Fehler meldet (z.B. 400 )
                 throw new Error(`Server error: ${response.status}`);
             }
-            return response.json();
+            return response.text();
         })
         .then(data => {
             // Hier kannst du den erfolgreichen Response verarbeiten
@@ -47,10 +51,11 @@ form.addEventListener('submit', (e) => {
             // z.B. weiterleiten oder Meldung anzeigen
         })
         .catch(error => {
-            console.error('Fehler:', error);
+            console.error('Fehler: ', error);
             error_message.innerText = error.message;
         });
 
+    e.preventDefault();
 
 })
 

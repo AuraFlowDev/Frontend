@@ -142,10 +142,17 @@ header {
 }
 
 .hero-content h1 {
+  font: normal normal 800 120px/110px Raleway;
   font-size: 8vh;
   line-height: 1.1;
   font-weight: 900;
   margin-bottom: 1rem;
+  letter-spacing: 1.8px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  opacity: 1;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 }
 
 .hero-content p {
@@ -173,11 +180,26 @@ header {
   transform: translateY(-2px);
 }
 
+.circle {
+  position: absolute;
+  width: 1100px;
+  height: 800px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  align-self: center;
+  top: 130%;
+  transform: translateY(-50%);
+  /* zentriert den Kreis vertikal im Container */
+  transition: transform 0.8s ease;
+  background: #FFFFFF;
+  opacity: 0.1;
+}
+
 /* ========== HOW IT WORKS Section ========== */
 #how-it-works {
   background: linear-gradient(135deg, #1c818b 0%, #0f1c2b 100%);
   min-height: 100vh;
-  scroll-snap-align: start; 
+  scroll-snap-align: start;
   padding: 4rem 2rem;
   color: #fff;
   position: relative;
@@ -618,6 +640,39 @@ footer {
   width: 16px;
   height: 16px;
 }
+
+/* ========== Arrow ==========*/
+.arrow-up{
+  position: fixed;
+  bottom: 2rem;
+  right: 0rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0A2A3F 0% 0% no-repeat padding-box;
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  width: 6rem;
+  height: 3rem;
+  border-top-left-radius: 40%;
+	border-bottom-left-radius: 40%;
+  opacity: 0;
+  transition: all .4s;
+}
+
+.arrow-up.active{
+  opacity: 1;
+}
+
+.arrow-span img{
+  width: 4rem;
+  height: 2.5rem;
+}
+
+.arrow-up:hover{
+  background-color: #17364b;
+}
+
 
 /* ========== MOBILE RESPONSIVE ========== */
 @media (max-width: 768px) {
