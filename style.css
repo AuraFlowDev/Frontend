@@ -6,10 +6,18 @@ html {
 
 body {
   font-family: "Raleway", sans-serif;
-  background: radial-gradient(circle at top left, #1c818b 10%, #0f1c2b 90%);
+  /*background: radial-gradient(circle at top left, #1c818b 10%, #0f1c2b 90%);*/
+  background: radial-gradient(
+      circle at top left,
+      #1c818b,
+      #0f1c2bde,
+      transparent
+    ),
+    radial-gradient(circle at center right, #0f1c2b 10%, #1c818b, transparent),
+    radial-gradient(circle at bottom, #1c818b 10%, #0f1c2b 40%, transparent);
   color: #fff;
   overflow-x: hidden;
-  height: 100vh;
+
   margin: 0;
 }
 
@@ -52,12 +60,13 @@ header {
   height: 55px;
   border-radius: 999px 0 0 999px;
   background: linear-gradient(to right, #1c7e8c, #2f5d6a);
-  padding: 0 1rem;
 }
 
 .nav-list {
+  flex-grow: 2;
   list-style: none;
   display: flex;
+  justify-content: space-evenly;
   gap: 2rem;
 }
 
