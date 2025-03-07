@@ -1,0 +1,115 @@
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top left, #1c818b 10%, #0f1c2b 90%);
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.tokenomics-container {
+  margin: auto;
+  align-items: flex-end;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  font: normal normal bold 4.375rem/4.375rem Raleway;
+  letter-spacing: 0.066rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
+}
+
+.short-text {
+  position: absolute;
+  float: left;
+  margin-right: 0.5em;
+
+  left: 3.813rem;
+  width: 22.875rem;
+  height: 10.625rem;
+  font-size: 1.563rem;
+  line-height: 2.188rem;
+
+  text-align: left;
+  letter-spacing: 0.024rem;
+  color: #ffffff;
+  opacity: 1;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  gap: 0.25rem;
+  align-items: flex-end;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 2.688rem;
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
+  text-align: left;
+  flex: 1;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
+}
+
+.card:nth-child(1) {
+  height: 26.063rem;
+  grid-column: 1;
+  grid-row: 2;
+}
+.card:nth-child(2) {
+  height: 46.188rem;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.card:nth-child(3) {
+  height: 34.438rem;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.last-column {
+  grid-column: 4;
+  grid-row: 2 / span 1;
+  /* Alternativ: grid-row: 2 / 3 oder grid-row: 2 / span 2,
+       je nach gewünschter Höhe bzw. vorhandenen Zeilen. */
+
+  /* Hier verschachteln wir die letzten beiden Karten
+       ohne zusätzlichen Grid-Row-Gap */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.25rem;
+}
+
+.last-card:nth-child(1) {
+  flex: 2;
+}
+
+.last-card:nth-child(2) {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 80%;
+  }
+}
