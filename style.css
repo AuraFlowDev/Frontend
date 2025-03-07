@@ -3,6 +3,7 @@ html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
+
 body {
   font-family: "Raleway", sans-serif;
   background: radial-gradient(circle at top left, #1c818b 10%, #0f1c2b 90%);
@@ -11,11 +12,13 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 a {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -33,11 +36,13 @@ header {
   padding: 1rem 2rem;
   z-index: 10;
 }
+
 .logo {
   font-size: 1.6rem;
   font-weight: 800;
   margin-right: 2rem;
 }
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -49,24 +54,29 @@ header {
   background: linear-gradient(to right, #1c7e8c, #2f5d6a);
   padding: 0 1rem;
 }
+
 .nav-list {
   list-style: none;
   display: flex;
   gap: 2rem;
 }
+
 .nav-list li {
   font-size: 20px;
   font-weight: 500;
   line-height: 1;
   transition: opacity 0.2s ease;
 }
+
 .nav-list li:hover {
   opacity: 0.8;
   cursor: pointer;
 }
+
 .nav-list li a {
   color: #fff;
 }
+
 .user-icon-container-desktop {
   display: flex;
   align-items: center;
@@ -75,6 +85,7 @@ header {
   background: rgba(255, 255, 255, 0.15);
   padding: 0 1rem;
 }
+
 .user-icon-container-desktop svg {
   width: 28px;
   height: 28px;
@@ -89,6 +100,7 @@ header {
   align-items: center;
   gap: 1rem;
 }
+
 .hamburger-icon {
   width: 28px;
   height: 28px;
@@ -97,11 +109,13 @@ header {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .hamburger-line {
   height: 3px;
   background: #fff;
   border-radius: 2px;
 }
+
 .user-icon-container-mobile {
   width: 28px;
   height: 28px;
@@ -120,11 +134,13 @@ header {
   text-align: center;
   padding: 2rem;
 }
+
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
   position: relative;
 }
+
 .hero-content h1 {
   font-size: 8vh;
   line-height: 1.1;
@@ -137,6 +153,7 @@ header {
   margin: 0 auto 2rem;
   color: #ccc;
 }
+
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
@@ -149,12 +166,28 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .cta-button:hover {
   background-color: #249987;
   transform: translateY(-2px);
 }
 
-/* ========== HOW IT WORKS SECTION ========== */
+.circle {
+  position: absolute;
+  width: 1100px;
+  height: 800px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  align-self: center;
+  top: 130%;
+  transform: translateY(-50%);
+  /* zentriert den Kreis vertikal im Container */
+  transition: transform 0.8s ease;
+  background: #ffffff;
+  opacity: 0.1;
+}
+
+/* ========== HOW IT WORKS Section ========== */
 #how-it-works {
   scroll-snap-align: start;
   width: 100%;
@@ -179,7 +212,7 @@ header {
   position: relative;
 }
 
-/* Container für den Halbkreis (SVG) + Zahlen */
+/* Arc-Container: Kreis, von dem nur die rechte Hälfte sichtbar ist */
 .arc-container {
   position: relative;
   width: 220px;
@@ -376,11 +409,13 @@ header {
   padding: 4rem 2rem;
   position: relative;
 }
+
 .features-container {
   max-width: 1300px;
   margin: 0 auto;
   position: relative;
 }
+
 .features-side-heading {
   position: absolute;
   top: 2rem;
@@ -390,19 +425,23 @@ header {
   text-transform: uppercase;
   color: #fff;
 }
+
 .features-intro {
   max-width: 700px;
   margin-bottom: 3rem;
 }
+
 .features-intro p {
   font-size: 1.6rem;
   line-height: 1.4;
   color: #d6d6d6;
 }
+
 .features-heading {
   text-align: right;
   margin-bottom: 4rem;
 }
+
 .features-heading h2 {
   font-weight: 300;
   font-size: 2.2rem;
@@ -410,15 +449,18 @@ header {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.9);
 }
+
 .features-heading h2 span {
   font-weight: 700;
   color: #fff;
 }
+
 .feature-cards {
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
 }
+
 .feature-card {
   position: relative;
   border-radius: 60px;
@@ -432,10 +474,12 @@ header {
 .feature-card + .feature-card {
   margin-top: -40px;
 }
+
 .feature-card:hover {
   transform: translateY(-10px);
   z-index: 2;
 }
+
 .feature-card::before {
   content: attr(data-number);
   position: absolute;
@@ -451,6 +495,7 @@ header {
   color: #fff;
   z-index: 2;
 }
+
 .feature-card-content h3 {
   font-size: 1.4rem;
   font-weight: 700;
@@ -458,12 +503,14 @@ header {
   margin-bottom: 0.5rem;
   color: #fff;
 }
+
 .feature-card-content p {
   opacity: 0;
   max-height: 0;
   overflow: hidden;
   transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out;
 }
+
 .feature-card:hover .feature-card-content p {
   opacity: 1;
   max-height: 500px;
@@ -480,12 +527,14 @@ header {
   padding: 2rem;
   background: transparent;
 }
+
 #coin-counter {
   font-size: 5rem;
   font-weight: bold;
   text-align: center;
   margin-bottom: 1rem;
 }
+
 #investment-btn {
   display: block;
   margin: 0 auto;
@@ -497,6 +546,7 @@ header {
   font-size: 1.2rem;
   cursor: pointer;
 }
+
 #investment-btn:hover {
   background-color: #249987;
 }
@@ -512,10 +562,12 @@ header {
   padding: 2rem;
   background: transparent;
 }
+
 #news .news-content h2 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
+
 #news .news-content p {
   font-size: 1.2rem;
   max-width: 600px;
@@ -532,18 +584,21 @@ footer {
   align-items: center;
   justify-content: center;
 }
+
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
+
 .footer-left {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
 }
+
 .placeholder-logo {
   width: 100px;
   height: 100px;
@@ -556,6 +611,7 @@ footer {
   color: #d66f76;
   font-size: 1rem;
 }
+
 .footer-nav {
   display: flex;
   flex-direction: column;
@@ -564,6 +620,7 @@ footer {
   color: #1a1a1a;
   font-weight: 500;
 }
+
 .footer-copy-row {
   display: flex;
   flex-wrap: wrap;
@@ -572,6 +629,7 @@ footer {
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.7);
 }
+
 .privacy-links {
   display: flex;
   gap: 1rem;
@@ -580,12 +638,14 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 .footer-right {
   text-align: right;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
+
 .footer-heading {
   font-size: 2.5rem;
   line-height: 1.1;
@@ -594,11 +654,13 @@ footer {
   color: rgba(255, 255, 255, 0.9);
   letter-spacing: 0.03em;
 }
+
 .social-links {
   position: relative;
   display: flex;
   gap: 0.8rem;
 }
+
 .social-links a {
   width: 28px;
   height: 28px;
@@ -609,12 +671,46 @@ footer {
   background: rgba(255, 255, 255, 0.1);
   transition: background 0.3s ease;
 }
+
 .social-links a:hover {
   background: rgba(255, 255, 255, 0.2);
 }
+
 .social-links img {
   width: 16px;
   height: 16px;
+}
+
+/* ========== Arrow ==========*/
+.arrow-up {
+  position: fixed;
+  bottom: 2rem;
+  right: 0rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a2a3f 0% 0% no-repeat padding-box;
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  width: 6rem;
+  height: 3rem;
+  border-top-left-radius: 40%;
+  border-bottom-left-radius: 40%;
+  opacity: 0;
+  transition: all 0.4s;
+}
+
+.arrow-up.active {
+  opacity: 1;
+}
+
+.arrow-span img {
+  width: 4rem;
+  height: 2.5rem;
+}
+
+.arrow-up:hover {
+  background-color: #17364b;
 }
 
 /* ========== MOBILE RESPONSIVE ========== */
@@ -707,6 +803,7 @@ footer {
   align-items: center;
   z-index: 999;
 }
+
 .modal {
   background: #1c2b3a;
   border-radius: 8px;
@@ -716,6 +813,7 @@ footer {
   position: relative;
   text-align: center;
 }
+
 .close-btn {
   position: absolute;
   top: 1rem;
@@ -726,15 +824,18 @@ footer {
   color: #ccc;
   cursor: pointer;
 }
+
 .close-btn:hover {
   color: #fff;
 }
+
 .modal-nav-links {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   margin-top: 2rem;
 }
+
 .modal-nav-links a {
   background: #2f5d6a;
   display: block;
@@ -744,9 +845,11 @@ footer {
   color: #fff;
   transition: opacity 0.3s;
 }
+
 .modal-nav-links a:hover {
   opacity: 0.8;
 }
+
 .tiktok-btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -756,6 +859,7 @@ footer {
   font-weight: 600;
   transition: background 0.3s ease;
 }
+
 .tiktok-btn:hover {
   background: #cc0040;
 }
