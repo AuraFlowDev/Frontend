@@ -97,12 +97,9 @@
         </p>
         <a class="cta-button" id="open-login-modal-btn">Get Started</a>
       </div>
-      <div id="circle" class="circle">
-        <div class="step" data-index="0">dgfjkasdhfkjh</div>
-      </div>
     </section>
 
-    <!-- HOW IT WORKS Section – Neu mit Halbkreis und 3 sichtbaren Markern -->
+    <!-- HOW IT WORKS SECTION -->
     <section id="how-it-works">
       <!-- STEP 1 -->
       <div class="step-section">
@@ -190,6 +187,52 @@
       </div>
     </section>
 
+    <!-- TOKENOMICS SECTION -->
+    <section id="tokenomics">
+      <div class="tokenomics-container">
+        <h1 class="tokenomics-title">TOKENOMICS</h1>
+        <p class="short-text">
+          Our project has a fixed total supply of 1,000,000,000 coins, allocated
+          to foster long-term growth, sustainability, and community engagement:
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>LAUNCH ALLOCATION – 200,000,000 COINS</h3>
+            <p>
+              Diese Tokens werden beim Start verfügbar sein, um frühzeitigen
+              Zugang und Liquidität zu ermöglichen.
+            </p>
+          </div>
+          <div class="card">
+            <h3>REWARDS ALLOCATION – 400,000,000 COINS</h3>
+            <p>
+              Diese Tokens werden für Community-Belohnungen reserviert, um
+              Engagement zu fördern.
+            </p>
+          </div>
+          <div class="card">
+            <h3>TEAM & MARKETING ALLOCATION – 50,000,000 COINS</h3>
+            <p>
+              Unterstützt unser Team und Marketinginitiativen für
+              kontinuierliche Entwicklung.
+            </p>
+          </div>
+          <div class="last-column">
+            <div class="card last-card">
+              <h3>RESERVE ALLOCATION – VERBLEIBENDE TOKENS</h3>
+              <p>
+                Diese Tokens werden schrittweise mit einer kontrollierten
+                Freigabe von 1% pro Woche freigegeben.
+              </p>
+            </div>
+            <div class="card last-card">
+              <h3>MORE</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FEATURES SECTION -->
     <section id="features">
       <div class="features-side-heading">KEY FEATURES<br />AND VALUES</div>
@@ -245,10 +288,6 @@
         </div>
       </div>
     </section>
-
-    <a href="#" class="arrow-up" id="arrow-up">
-      <span class="arrow-span"><img src="fonts/arrow_up.png" /></span>
-    </a>
 
     <!-- FOOTER -->
     <footer>
@@ -319,6 +358,16 @@
       </div>
     </div>
 
+    <!-- LOGIN MODAL -->
+    <div class="modal-overlay" id="login-modal">
+      <div class="modal">
+        <button class="close-btn" id="close-login-modal-btn">x</button>
+        <h2>Login</h2>
+        <p>Log in now to start creating and monetizing your content!</p>
+        <a class="tiktok-btn" href="#">Login with TikTok</a>
+      </div>
+    </div>
+
     <script>
       /* MOBILE NAV MODAL */
       const openMobileNav = document.getElementById("open-mobile-nav-modal");
@@ -360,6 +409,36 @@
         }
       });
 
+      /* LOGIN MODAL */
+      const loginModal = document.getElementById("login-modal");
+      const closeLoginModalBtn = document.getElementById(
+        "close-login-modal-btn"
+      );
+      const openLoginDesktopIcon = document.getElementById(
+        "open-login-modal-desktop"
+      );
+      const openLoginMobileIcon = document.getElementById(
+        "open-login-modal-mobile"
+      );
+      const openLoginCtaBtn = document.getElementById("open-login-modal-btn");
+      function openLoginModal() {
+        loginModal.style.display = "flex";
+      }
+      if (openLoginDesktopIcon)
+        openLoginDesktopIcon.addEventListener("click", openLoginModal);
+      if (openLoginMobileIcon)
+        openLoginMobileIcon.addEventListener("click", openLoginModal);
+      if (openLoginCtaBtn)
+        openLoginCtaBtn.addEventListener("click", openLoginModal);
+      closeLoginModalBtn.addEventListener("click", () => {
+        loginModal.style.display = "none";
+      });
+      window.addEventListener("click", (e) => {
+        if (e.target === loginModal) {
+          loginModal.style.display = "none";
+        }
+      });
+
       /* HOW IT WORKS – Intersection Observer (für Fade-In-Effekt, optional) */
       const heroSection = document.getElementById("hero-section");
       const howItWorksSection = document.getElementById("how-it-works");
@@ -375,7 +454,6 @@
         observer.observe(heroSection);
       }
     </script>
-    <script type="text/javascript" src="script.js" defer></script>
     <script type="text/javascript" src="login.js" defer></script>
   </body>
 </html>

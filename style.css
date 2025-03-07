@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   background: radial-gradient(circle at top left, #1c818b 10%, #0f1c2b 90%);
   color: #fff;
   overflow-x: hidden;
@@ -142,19 +142,11 @@ header {
 }
 
 .hero-content h1 {
-  font: normal normal 800 120px/110px Raleway;
   font-size: 8vh;
   line-height: 1.1;
   font-weight: 900;
   margin-bottom: 1rem;
-  letter-spacing: 1.8px;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  opacity: 1;
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
 }
-
 .hero-content p {
   font-size: 1.2rem;
   max-width: 600px;
@@ -197,169 +189,218 @@ header {
 
 /* ========== HOW IT WORKS Section ========== */
 #how-it-works {
-  background: linear-gradient(135deg, #1c818b 0%, #0f1c2b 100%);
+  scroll-snap-align: start;
+  width: 100%;
+  /* Für Fade-In-Effekt (via Intersection Observer) */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+#how-it-works.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Jedes Schritt-Panel nimmt eine ganze Browserhöhe ein */
+.step-section {
   min-height: 100vh;
   scroll-snap-align: start;
-  padding: 4rem 2rem;
-  color: #fff;
-  position: relative;
-  overflow: hidden;
-}
-
-.how-container {
   display: flex;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Linke Spalte */
-.steps-column {
+  justify-content: flex-start;
+  padding: 2rem 4rem;
   position: relative;
-  width: 200px;
-  /* Genügend Platz für den Halbkreis */
-  height: 100%;
 }
 
 /* Arc-Container: Kreis, von dem nur die rechte Hälfte sichtbar ist */
 .arc-container {
-  position: absolute;
-  left: -150px;
-  /* Verschiebt den Kreis nach links, sodass nur die rechte Hälfte erscheint */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  pointer-events: none;
-  stroke-width: 4;
-  stroke
-  /* Damit Klicks nicht den Kreis blockieren */
-}
-
-/* Marker-Stile */
-.marker {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-/* Positionierung der Marker – basierend auf Kreisgeometrie (Zentrum: 150,150; Radius: 150) */
-/* Aktiver Marker bei Winkel 0°: (150 + 150*cos0, 150 + 150*sin0) = (300,150)
-   Marker zentrieren: (300 - 25, 150 - 25) = (275px, 125px) */
-.marker-active {
-  left: 275px;
-  top: 125px;
-  background: #fff;
-  color: #0f1c2b;
-  width: 60px;
-  height: 60px;
-  font-size: 2rem;
-}
-
-/* Vorheriger Marker bei Winkel -45°:
-   cos(-45°) ≈ 0.707, sin(-45°) ≈ -0.707
-   x = 150 + 150*0.707 ≈ 256, y = 150 - 150*0.707 ≈ 44
-   Zentriert: (256 - 25, 44 - 25) = (231px, 19px) */
-.marker-prev {
-  left: 231px;
-  top: 19px;
-}
-
-/* Nächster Marker bei Winkel +45°:
-   x = 150 + 150*0.707 ≈ 256, y = 150 + 150*0.707 ≈ 256
-   Zentriert: (256 - 25, 256 - 25) = (231px, 231px) */
-.marker-next {
-  left: 231px;
-  top: 231px;
-}
-
-/* Wir nutzen die Klasse .hidden, um Marker auszublenden, wenn kein Schritt vorhanden ist */
-.hidden {
-  display: none;
-}
-
-/* Rechte Spalte: Inhalt */
-.content-column {
-  flex: 1;
-  padding-left: 2rem;
   position: relative;
+  width: 220px;
+  height: 220px;
+  margin-right: 4rem;
 }
 
-.hint {
+/* Halbkreis-SVG */
+.arc {
   position: absolute;
-  top: 1rem;
-  right: 2rem;
-  font-size: 0.9rem;
-  color: #ccc;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 220px;
+}
+.arc path {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2;
+  fill: none;
 }
 
-.step-title {
-  font-size: 2.5rem;
+/* Labels entlang des Bogens */
+.arc-label {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.4rem;
+  font-weight: 800;
+  transform: translate(-50%, -50%);
+}
+/* Manuell platzierte Labels: */
+.arc-label-top {
+  top: 15%;
+  left: 90%;
+}
+.arc-label-middle {
+  top: 50%;
+  left: 100%;
+  font-size: 2rem;
+  color: #ffffff;
+}
+.arc-label-bottom {
+  top: 85%;
+  left: 90%;
+}
+
+/* Große Zahl rechts vom Arc */
+.big-step-num {
+  position: absolute;
+  top: 50%;
+  left: 160%;
+  transform: translateY(-50%);
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+/* Text-Block */
+.step-text-block {
+  max-width: 500px;
+}
+.step-text-block h2 {
+  font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
-
-.step-description {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  max-width: 600px;
-  margin-bottom: 2rem;
+.step-text-block p {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #ccc;
 }
 
-/* Button */
-.next-btn {
-  background-color: #2bc0a6;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: 700;
+/* ========== TOKENOMICS HEADER ========== */
+#tokenomics {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  width: 100%;
+  /* Für Fade-In-Effekt (via Intersection Observer) */
+  opacity: 1;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.tokenomics-container {
+  margin: auto;
+  align-items: flex-end;
+  box-sizing: content-box;
+  width: 100%;
+}
+
+.tokenomics-title {
+  font-size: 2.5rem;
+  text-align: center;
+  font: normal normal bold 4.375rem/4.375rem Raleway;
+  letter-spacing: 0.066rem;
+  color: #ffffff;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
 }
 
-.next-btn:hover {
-  background-color: #249987;
-  transform: translateY(-2px);
+.short-text {
+  position: absolute;
+  float: left;
+  margin-right: 0.5em;
+
+  left: 3.813rem;
+  width: 22.875rem;
+  height: 10.625rem;
+  font-size: 1.563rem;
+  line-height: 2.188rem;
+
+  text-align: left;
+  letter-spacing: 0.024rem;
+  color: #ffffff;
+  opacity: 1;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
 }
 
-/* Responsive Anpassungen */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto;
+  justify-content: space-between;
+  gap: 0.25rem;
+  align-items: flex-end;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 2.688rem;
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
+  text-align: left;
+  flex: 1;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
+}
+
+.card:nth-child(1) {
+  height: 26.063rem;
+  grid-column: 1;
+  grid-row: 2;
+}
+.card:nth-child(2) {
+  height: 46.188rem;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.card:nth-child(3) {
+  height: 34.438rem;
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.last-column {
+  grid-column: 4;
+  grid-row: 2 / span 1;
+  /* Alternativ: grid-row: 2 / 3 oder grid-row: 2 / span 2,
+       je nach gewünschter Höhe bzw. vorhandenen Zeilen. */
+
+  /* Hier verschachteln wir die letzten beiden Karten
+       ohne zusätzlichen Grid-Row-Gap */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 0.25rem;
+}
+
+.last-card:nth-child(1) {
+  flex: 2;
+}
+
+.last-card:nth-child(2) {
+  flex: 1;
+}
+
 @media (max-width: 768px) {
-  .how-container {
+  .cards {
     flex-direction: column;
     align-items: center;
   }
 
-  .steps-column {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .content-column {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .hint {
-    position: static;
-    margin-bottom: 1rem;
+  .card {
+    width: 80%;
   }
 }
-
-F
 
 /* ========== FEATURES SECTION ========== */
 #features {
@@ -430,8 +471,7 @@ F
   z-index: 1;
   overflow: hidden;
 }
-
-.feature-card+.feature-card {
+.feature-card + .feature-card {
   margin-top: -40px;
 }
 
@@ -679,38 +719,30 @@ footer {
   .nav-container {
     display: none;
   }
-
   .mobile-header {
     display: flex;
   }
-
   .hero-content h1 {
     font-size: 8vw;
   }
-
   footer {
     padding: 2rem 1rem;
   }
-
   .footer-container {
     flex-direction: column;
     gap: 1.5rem;
   }
-
   .footer-left {
     align-items: flex-start;
   }
-
   .footer-heading {
     font-size: 2rem;
     text-align: left;
   }
-
   .social-links {
     position: static;
     margin-top: 1rem;
   }
-
   .footer-copy-row {
     gap: 0.8rem;
   }
@@ -718,26 +750,21 @@ footer {
   .features-side-heading {
     display: none;
   }
-
   .features-intro p {
     font-size: 1.2rem;
   }
-
   .features-heading h2 {
     text-align: center;
     font-size: 1.8rem;
   }
-
   .feature-card {
     padding: 2rem 1rem 2rem 120px;
   }
-
   .feature-card::before {
     width: 100px;
     font-size: 1.6rem;
   }
-
-  .feature-card+.feature-card {
+  .feature-card + .feature-card {
     margin-top: 1rem;
   }
 
@@ -746,23 +773,19 @@ footer {
     flex-direction: column;
     justify-content: center;
   }
-
   .arc-container {
     margin-right: 0;
     margin-bottom: 2rem;
   }
-
   .arc-label-middle {
     font-size: 1.6rem;
   }
-
   .big-step-num {
     left: 50%;
     top: 70%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
   }
-
   .step-text-block {
     text-align: center;
   }
