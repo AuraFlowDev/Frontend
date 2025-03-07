@@ -1,183 +1,64 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <title>Halbkreis-SVG-Demo</title>
     <link rel="stylesheet" href="teststyle.css" />
-</head>
+  </head>
 
-<body>
-    <!-- Kopfzeile mit Link oben rechts -->
-    <header>
-        <nav>
-            <a href="#" class="how-it-works">HOW IT WORKS</a>
-        </nav>
-    </header>
-
-    <!-- Hero-Section mit dem großen Halbkreis links + Inhalt rechts -->
-    <section class="hero">
-        <!-- Container für den SVG-Kreis und die Schritte,
-         nur die rechte Hälfte ist sichtbar -->
-        <div class="half-circle-container">
-            <!-- Rotator: SVG + Schritte liegen zusammen hier drin, damit sie 
-           sich gemeinsam drehen lassen -->
-            <div class="rotator" id="rotator">
-                <!-- Hier das SVG für den Kreisumfang -->
-                <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Ein Kreis mit center (300,300) und radius 300 -->
-                    <circle cx="300" cy="300" r="300" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
-                </svg>
-
-                <!-- Die Schritt-Punkte (00–05) -->
-                <div class="step" data-index="0">00</div>
-                <div class="step" data-index="1">01</div>
-                <div class="step" data-index="2">02</div>
-                <div class="step" data-index="3">03</div>
-                <div class="step" data-index="4">04</div>
-                <div class="step" data-index="5">05</div>
-            </div>
-        </div>
-
-        <!-- Großer Schritt und Text nebendran -->
-        <div class="text-area">
-            <div class="big-step" id="big-step-number">01</div>
-            <h2 class="title" id="step-title">Secure Account Registration</h2>
-            <p class="description" id="step-description">
-                Begin by registering for a secure user account on our homepage.
-                Our robust registration process safeguards your personal data...
-            </p>
-            <button id="btnNext" class="next-button">Nächster Schritt</button>
-        </div>
-    </section>
-
+  <body>
     <section class="key-features">
-        <div class="topics">
-            <div class="topic-div">
-                <h2 class="topic-title">Title</h2>
-                <p class="topic-text">Auraflow is committed to providing a streamlined,
-                    efficient process that allows TikTok creators to focus on what they
-                    do best—creating exceptional content. Our advanced,
-                    automated system ensures that your creative efforts are rewarded
-                    with precision and transparency.</p>
-            </div>
-            <div class="topic-arrow">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2" />
-                </svg>
-            </div>
+      <div class="features-side-heading">
+        <a>WHAT ARE OUR<br />KEY FEATURES</a>
+      </div>
+      <div class="topics">
+        <div class="topic">
+          <h2 class="topic-title">1. Engagement-Driven Rewards</h2>
+          <p class="topic-text">
+            Auraflow is committed to providing a streamlined, efficient process
+            that allows TikTok creators to focus on what they do best—creating
+            exceptional content. Our advanced, automated system ensures that
+            your creative efforts are rewarded with precision and transparency.
+          </p>
         </div>
-        <div class="features-side-heading">KEY FEATURES<br>AND VALUES</div>
-    </section>
-
-    <section>
-        <div class="navigation-circle">
-            <div class="navigation-circle__inner">
-                <img src="https://afisec.co/wp-content/uploads/2020/07/Logo3.png" alt="AFISEC"
-                    style="width: 100px; position: absolute; top: 90px;left: 110px;">
-                <svg class="navigation-circle-svg navigation-circle-svg--opaque" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320"
-                    style="enable-background:new 0 0 320 320;">
-                    <circle cx="160" cy="160" r="158" fill="none" stroke-width="2" stroke="#ce4439"
-                        stroke-linecap="round" stroke-miterlimit="10"
-                        style="stroke-dashoffset:0;stroke-dasharray:none;"></circle>
-                </svg>
-                <svg class="navigation-circle-svg navigation-circle-svg--mask" version="1.1"
-                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320"
-                    style="enable-background:new 0 0 320 320;">
-                    <circle id="mask-circle" cx="160" cy="160" r="158" fill="none" stroke-width="2" stroke="#767676"
-                        stroke-linecap="round" stroke-miterlimit="10" style="stroke-dasharray:1005.3088px;"></circle>
-                </svg>
-
-                <ul class="navigation-circle__list">
-                    <li class="navigation-circle-list-item">
-                        <a class="navigation-circle-list-item__point" onclick="onClick(1)"
-                            onmouseenter="calculateOffset(1)" onMouseLeave="onMouseLeave()"></a>
-                        <div class="navigation-circle-list-item__meta navigator_circle_center">
-                            <div class="navigator_circle_list_inside">
-                                <h3 class="navigation-circle-list-item__title">Experiencia
-                                </h3>
-                                <h4 class="navigation-circle-list-item__subtitle">50 años de experiencia en el mercado
-                                    asegurador Colombiano.</h4>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="navigation-circle-list-item">
-                        <a class="navigation-circle-list-item__point" onclick="onClick(2)"
-                            onmouseenter="calculateOffset(2)" onMouseLeave="onMouseLeave()"></a>
-                        <div class="navigation-circle-list-item__meta navigator_circle_center">
-                            <div class="navigator_circle_list_inside">
-                                <h3 class="navigation-circle-list-item__title">Solidez
-                                </h3>
-                                <h4 class="navigation-circle-list-item__subtitle">Contamos con el respaldo patrimonial
-                                    de una empresa que reinvierte sus utilidades para brindar una mejor experiencia a
-                                    nuestros clientes.</h4>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="navigation-circle-list-item">
-                        <a class="navigation-circle-list-item__point" onclick="onClick(3)"
-                            onmouseenter="calculateOffset(3)" onMouseLeave="onMouseLeave()"></a>
-                        <div class="navigation-circle-list-item__meta navigator_circle_center">
-                            <div class="navigator_circle_list_inside">
-                                <h3 class="navigation-circle-list-item__title">Transparencia
-                                </h3>
-                                <h4 class="navigation-circle-list-item__subtitle">Brindamos un servicio integral
-                                    identificando y gestionando los riesgos de nuestros asegurados con el fin de poder
-                                    ofrecer las mejores coberturas disponibles en el mercado.</h4>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="navigation-circle-list-item">
-                        <a class="navigation-circle-list-item__point" onclick="onClick(4)"
-                            onmouseenter="calculateOffset(4)" onMouseLeave="onMouseLeave()"></a>
-                        <div class="navigation-circle-list-item__meta navigator_circle_center">
-                            <div class="navigator_circle_list_inside">
-                                <h3 class="navigation-circle-list-item__title">Equipo
-                                </h3>
-                                <h4 class="navigation-circle-list-item__subtitle">Contamos con un equipo altamente
-                                    calificado, multidisciplinario y con amplia experiencia que nos permite generar
-                                    valor en nuestro servicio.</h4>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="navigation-circle-list-item">
-                        <a class="navigation-circle-list-item__point" onclick="onClick(5)"
-                            onmouseenter="calculateOffset(5)" onMouseLeave="onMouseLeave()"></a>
-                        <div class="navigation-circle-list-item__meta navigator_circle_center">
-                            <div class="navigator_circle_list_inside">
-                                <h3 class="navigation-circle-list-item__title">Innovación
-                                </h3>
-                                <h4 class="navigation-circle-list-item__subtitle">Nos adaptamos a las nuevas tendencias
-                                    y necesidades de nuestros clientes utilizando tecnologías de punta.</h4>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="navigation-circle-list-item">
-                        <a class="navigation-circle-list-item__point" onclick="onClick(6)"
-                            onmouseenter="calculateOffset(6)" onMouseLeave="onMouseLeave()"></a>
-                        <div class="navigation-circle-list-item__meta navigator_circle_center">
-                            <div class="navigator_circle_list_inside">
-                                <h3 class="navigation-circle-list-item__title">Atención personalizada
-                                </h3>
-                                <h4 class="navigation-circle-list-item__subtitle">Todos nuestros clientes cuentan con el
-                                    servicio personalizado de un ejecutivo de cuenta que conoce con profundidad la
-                                    composición de su portafolio.</h4>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+        <div class="topic">
+          <h2 class="topic-title">2</h2>
+          <p class="topic-text">
+            Auraflow is committedyour creative efforts are rewarded with
+            precision and transparency.
+          </p>
         </div>
+        <div class="topic">
+          <h2 class="topic-title">3</h2>
+          <p class="topic-text">Auraflownd transparency.</p>
+        </div>
+        <div class="topic">
+          <h2 class="topic-title">4</h2>
+          <p class="topic-text">that allows TikTok creato</p>
+        </div>
+        <div class="topic">
+          <h2 class="topic-title">5</h2>
+          <p class="topic-text">Auraflow is committed transparency.</p>
+        </div>
+        <div class="topic">
+          <h2 class="topic-title">6</h2>
+          <p class="topic-text">Auraflow is commit</p>
+        </div>
+        <div class="topic-arrow" id="topic-arrow">
+          <span class="arrow-span"><img src="fonts/arrow_right.png" /></span>
+        </div>
+
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+          <span class="dot" onclick="currentSlide(4)"></span>
+          <span class="dot" onclick="currentSlide(5)"></span>
+          <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+      </div>
     </section>
-
-    <script src="testscript.js"></script>
-</body>
-
+    <script src="testscript.js" defer></script>
+  </body>
 </html>
