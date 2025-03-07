@@ -1,113 +1,56 @@
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tokenomics</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #004d66, #008080);
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-        }
+    <link rel="stylesheet" href="tokenomics.css" />
+  </head>
 
-        section{
-            background-color: aliceblue;
-        }
-        .container {
-            max-width: 1400px;
-            margin: auto;
-            align-items: flex-end;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        .cards {
-            display: flex;
-            justify-content: space-between;
-            gap: 15px;
-            align-items: flex-end;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-            text-align: left;
-            flex: 1;
-        }
-
-        .card:nth-child(1) {
-            height: 10rem;
-            background-color: aqua;
-        }
-
-        .card:nth-child(2) {
-            height: 20rem;
-        }
-
-        .card:nth-child(3) {
-            height: 30rem;
-        }
-
-        .card:nth-child(4) {
-            height: 30rem;
-        }
-
-        .card:nth-child(5) {
-            height: 20rem;
-        }
-
-        @media (max-width: 768px) {
-            .cards {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .card {
-                width: 80%;
-            }
-        }
-    </style>
-</head>
-
-<body>
+  <body>
     <section>
-        <div class="container">
-            <h1>TOKENOMICS</h1>
-            <p>Unser Projekt hat eine feste Gesamtversorgung von <strong>1.000.000.000</strong> Coins.</p>
-            <div class="cards">
-                <div class="card">
-                    <h3>LAUNCH ALLOCATION – 200,000,000 COINS</h3>
-                    <p>Diese Tokens werden beim Start verfügbar sein, um frühzeitigen Zugang und Liquidität zu
-                        ermöglichen.</p>
-                </div>
-                <div class="card">
-                    <h3>REWARDS ALLOCATION – 400,000,000 COINS</h3>
-                    <p>Diese Tokens werden für Community-Belohnungen reserviert, um Engagement zu fördern.</p>
-                </div>
-                <div class="card">
-                    <h3>TEAM & MARKETING ALLOCATION – 50,000,000 COINS</h3>
-                    <p>Unterstützt unser Team und Marketinginitiativen für kontinuierliche Entwicklung.</p>
-                </div>
-                <div class="card">
-                    <h3>RESERVE ALLOCATION – VERBLEIBENDE TOKENS</h3>
-                    <p>Diese Tokens werden schrittweise mit einer kontrollierten Freigabe von 1% pro Woche freigegeben.
-                    </p>
-                </div>
-                <div class="card">
-                    <h3>RESERVE ALLOCATION – VERBLEIBENDE TOKENS</h3>
-                </div>
+      <div class="tokenomics-container">
+        <h1>TOKENOMICS</h1>
+        <p class="short-text">
+          Our project has a fixed total supply of 1,000,000,000 coins, allocated
+          to foster long-term growth, sustainability, and community engagement:
+        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>LAUNCH ALLOCATION – 200,000,000 COINS</h3>
+            <p>
+              Diese Tokens werden beim Start verfügbar sein, um frühzeitigen
+              Zugang und Liquidität zu ermöglichen.
+            </p>
+          </div>
+          <div class="card">
+            <h3>REWARDS ALLOCATION – 400,000,000 COINS</h3>
+            <p>
+              Diese Tokens werden für Community-Belohnungen reserviert, um
+              Engagement zu fördern.
+            </p>
+          </div>
+          <div class="card">
+            <h3>TEAM & MARKETING ALLOCATION – 50,000,000 COINS</h3>
+            <p>
+              Unterstützt unser Team und Marketinginitiativen für
+              kontinuierliche Entwicklung.
+            </p>
+          </div>
+          <div class="last-column">
+            <div class="card last-card">
+              <h3>RESERVE ALLOCATION – VERBLEIBENDE TOKENS</h3>
+              <p>
+                Diese Tokens werden schrittweise mit einer kontrollierten
+                Freigabe von 1% pro Woche freigegeben.
+              </p>
             </div>
+            <div class="card last-card">
+              <h3>MORE</h3>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-</body>
-
+  </body>
 </html>
