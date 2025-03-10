@@ -10,6 +10,10 @@ openLoginBtn.addEventListener("click", () => {
   modalOverlay.style.display = "flex";
 });
 
+function openLogin(){
+  modalOverlay.style.display = "flex";
+}
+
 // Schließen des Popups über den Close-Button
 closeModalBtn.addEventListener("click", () => {
   modalOverlay.style.display = "none";

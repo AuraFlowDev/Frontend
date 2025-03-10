@@ -98,7 +98,9 @@
           <strong>AURAFLOW</strong> you turn your creativity into real income –
           simple, fair, and made for creators like you.
         </p>
-        <a class="cta-button" id="open-login-modal-btn">Get Started</a>
+        <a class="cta-button" id="open-login-modal-btn" onclick="openLogin()"
+          >Get Started</a
+        >
       </div>
     </section>
 
@@ -130,9 +132,6 @@
 
     <!-- KEY FEATURES SECTION -->
     <section class="key-features">
-      <div class="features-side-heading">
-        <a>WHAT ARE OUR<br />KEY FEATURES</a>
-      </div>
       <div class="topics">
         <div class="topic">
           <h2 class="topic-title">1. Engagement-Driven Rewards</h2>
@@ -178,6 +177,9 @@
           <span class="dot" onclick="currentSlide(5)"></span>
           <span class="dot" onclick="currentSlide(6)"></span>
         </div>
+      </div>
+      <div class="features-side-heading">
+        <a>WHAT ARE OUR<br />KEY FEATURES</a>
       </div>
     </section>
 
@@ -227,57 +229,37 @@
       </div>
     </section>
 
-    <!-- FEATURES SECTION -->
-    <section id="features">
-      <div class="features-side-heading">KEY FEATURES<br />AND VALUES</div>
-      <div class="features-container">
-        <div class="features-intro">
-          <p>
-            Auraflow ensures you get paid fairly for your content,<br />
-            with a quick and simple setup that lets you start<br />
-            earning in minutes. Track your income in real-time<br />
-            with our transparent platform, designed specifically<br />
-            for TikTok creators like you.
-          </p>
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="rounded-box">
+        <!-- Linker Bereich (großer Text) -->
+        <div class="box-left">
+          <h1>
+            SUPPORT NOW AND <br />
+            BECOME PART OF <br />
+            THE FUTURE
+          </h1>
         </div>
-        <div class="features-heading">
-          <h2>WHY CREATORS LOVE <span>AURAFLOW</span></h2>
-        </div>
-        <div class="feature-cards">
-          <div class="feature-card" data-number="01">
-            <div class="feature-card-content">
-              <h3>FAIR PAYMENTS</h3>
-              <p>
-                No hidden fees, no complicated rules – just fair income for your
-                work.
-              </p>
-            </div>
+
+        <!-- Rechter Bereich (zwei Textblöcke + Pfeil) -->
+        <div class="box-right">
+          <!-- Oberer Text + Pfeil (→) -->
+          <div class="upper-text">
+            <p>
+              Kickstart your support and help drive AuraFlow’s innovation and
+              growth. Every contribution makes a difference!
+            </p>
           </div>
-          <div class="feature-card" data-number="02">
-            <div class="feature-card-content">
-              <h3>FAST &amp; EASY SETUP</h3>
-              <p>
-                Quickly connect your TikTok and start earning in minutes. No
-                hassle.
-              </p>
-            </div>
-          </div>
-          <div class="feature-card" data-number="03">
-            <div class="feature-card-content">
-              <h3>TRANSPARENT DASHBOARD</h3>
-              <p>
-                Track your earnings in real time. Always know how much you're
-                making.
-              </p>
-            </div>
-          </div>
-          <div class="feature-card" data-number="04">
-            <div class="feature-card-content">
-              <h3>TAILORED FOR TIKTOK CREATORS</h3>
-              <p>
-                Specifically designed to help short-form video creators thrive.
-              </p>
-            </div>
+          <div class="arrow-icon" onclick="changeSite('signup.html')">↑</div>
+
+          <!-- Unterer Text mit abgerundeter Linie (optional) -->
+          <div class="lower-text">
+            <p>
+              This support does not constitute a financial investment. There is
+              no guaranteed payout or token allocation. All contributions are
+              voluntary and solely intended to advance the development of the
+              project.
+            </p>
           </div>
         </div>
       </div>
@@ -305,37 +287,37 @@
           </div>
         </div>
         <div class="footer-right">
-          <div class="footer-heading">REWARDSYSTEM<br />WITH AURAFLOW</div>
-        </div>
-        <div class="social-links">
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="img/social_x.svg" alt="X (Twitter)" />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="img/social_instagram.svg" alt="Instagram" />
-          </a>
-          <a
-            href="https://tiktok.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="img/social_tiktok.svg" alt="TikTok" />
-          </a>
-          <a
-            href="https://youtube.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="img/social_youtube.svg" alt="YouTube" />
-          </a>
+          <div class="footer-heading">PAYMENT WITH AURAFLOW</div>
+          <div class="social-links">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/social_x.svg" alt="X (Twitter)" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/social_instagram.svg" alt="Instagram" />
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/social_tiktok.svg" alt="TikTok" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="img/social_youtube.svg" alt="YouTube" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
@@ -418,7 +400,6 @@
       const openLoginMobileIcon = document.getElementById(
         "open-login-modal-mobile"
       );
-      const openLoginCtaBtn = document.getElementById("open-login-modal-btn");
       function openLoginModal() {
         loginModal.style.display = "flex";
       }
@@ -426,8 +407,6 @@
         openLoginDesktopIcon.addEventListener("click", openLoginModal);
       if (openLoginMobileIcon)
         openLoginMobileIcon.addEventListener("click", openLoginModal);
-      if (openLoginCtaBtn)
-        openLoginCtaBtn.addEventListener("click", openLoginModal);
       closeLoginModalBtn.addEventListener("click", () => {
         loginModal.style.display = "none";
       });

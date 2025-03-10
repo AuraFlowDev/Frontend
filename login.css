@@ -108,6 +108,7 @@
   -webkit-backdrop-filter: blur(10px);
   border-top-left-radius: 60px;
   border-bottom-left-radius: 60px;
+  border: none;
   width: 100%;
   padding: 12px;
 }
