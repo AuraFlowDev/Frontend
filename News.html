@@ -12,6 +12,8 @@
     />
     <!-- Externe CSS-Datei -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="news.css" />
   </head>
   <body>
     <!-- HEADER -->
@@ -20,16 +22,52 @@
       <!-- Desktop Nav -->
       <div class="nav-container">
         <ul class="nav-list">
-          <li><a href="Auraflow_Home.html#how-it-works">How It Works</a></li>
-          <li><a href="Auraflow_Home.html#features">Features</a></li>
-          <li><a href="Presale.html">Pre Sale</a></li>
-          <li><a href="News.html">News</a></li>
+          <li><a href="Auraflow_Home.html">How It Works</a></li>
+          <li><a href="tokenomics.html">TOKENOMICS</a></li>
+          <li><a href="#fund">FUND</a></li>
+          <li><a href="News.html">NEWS</a></li>
         </ul>
-        <div class="user-icon-container-desktop" id="open-login-modal-desktop">
+        <div class="open-popup" id="open-popup">
           <svg viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="7" r="4"></circle>
             <path d="M5.5 20c1.4-2.33 3.73-4 6.5-4s5.1 1.67 6.5 4"></path>
           </svg>
+        </div>
+        <div class="popup-overlay" id="popup-overlay">
+          <div class="popup">
+            <div class="close-popup-btn" id="close-popup-btn">&times;</div>
+            <h1>SIGN IN</h1>
+            <form class="login-form" action="/login" method="POST">
+              <div class="login-input">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="YOUR EMAIL"
+                  required
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="PASSWORD"
+                  required
+                />
+                <button type="submit">SIGN IN</button>
+              </div>
+              <div class="social-login">
+                <p>OR SIGN IN WITH</p>
+                <div class="social-buttons">
+                  <button type="button">APPLE</button>
+                  <button type="button">GOOGLE</button>
+                </div>
+                <p>
+                  Don't have an account?
+                  <a href="signup.html">SIGN UP</a>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
       <!-- Mobile Header -->
@@ -52,14 +90,53 @@
     </header>
 
     <!-- NEWS CONTENT -->
-    <section id="news">
-      <div class="news-content">
-        <h2>Latest News</h2>
-        <p>
-          Keep up with the latest updates and announcements from Auraflow. Check
-          back regularly for news and insights!
-        </p>
-        <a class="cta-button" href="#">Read More</a>
+    <section class="news" id="news">
+      <div class="news-container">
+        <div class="news-content">
+          <h2>DIRECT IMPACT & TRANSPARENT SUPPORT</h2>
+          <p class="news-date">10.03.2025</p>
+          <p class="preview">
+            Keep up with the latest updates and announcements from Auraflow.
+            Check back regularly for news and insights!
+          </p>
+          <a class="cta-button" href="#">+</a>
+        </div>
+        <div class="news-content">
+          <h2>Latest News</h2>
+          <p class="news-date">10.03.2025</p>
+          <p>
+            Keep up with the latest updates and announcements from Auraflow.
+            Check back regularly for news and insights!
+          </p>
+          <a class="cta-button" href="#">+</a>
+        </div>
+        <div class="news-content">
+          <h2>Latest News</h2>
+          <p class="news-date">10.03.2025</p>
+          <p>
+            Keep up with the latest updates and announcements from Auraflow.
+            Check back regularly for news and insights!
+          </p>
+          <a class="cta-button" href="#">+</a>
+        </div>
+        <div class="news-content">
+          <h2>Latest News</h2>
+          <p class="news-date">10.03.2025</p>
+          <p>
+            Keep up with the latest updates and announcements from Auraflow.
+            Check back regularly for news and insights!
+          </p>
+          <a class="cta-button" href="#">+</a>
+        </div>
+        <div class="news-content">
+          <h2>Latest News</h2>
+          <p class="news-date">10.03.2025</p>
+          <p>
+            Keep up with the latest updates and announcements from Auraflow.
+            Check back regularly for news and insights!
+          </p>
+          <a class="cta-button" href="#">+</a>
+        </div>
       </div>
     </section>
 
@@ -116,106 +193,6 @@
       </div>
     </footer>
 
-    <!-- MOBILE NAV MODAL -->
-    <div class="modal-overlay" id="mobile-nav-modal">
-      <div class="modal">
-        <button class="close-btn" id="close-mobile-nav-modal">x</button>
-        <h2>Menu</h2>
-        <div class="modal-nav-links">
-          <a
-            href="Auraflow_Home.html#how-it-works"
-            id="close-mobile-nav-modal-link"
-            >How It Works</a
-          >
-          <a
-            href="Auraflow_Home.html#features"
-            id="close-mobile-nav-modal-link2"
-            >Features</a
-          >
-          <a href="Presale.html" id="close-mobile-nav-modal-link3">Pre Sale</a>
-          <a href="News.html" id="close-mobile-nav-modal-link4">News</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- LOGIN MODAL -->
-    <div class="modal-overlay" id="login-modal">
-      <div class="modal">
-        <button class="close-btn" id="close-login-modal-btn">x</button>
-        <h2>Login</h2>
-        <p>Log in now to start creating and monetizing your content!</p>
-        <a class="tiktok-btn" href="#">Login with TikTok</a>
-      </div>
-    </div>
-
-    <script>
-      const openMobileNav = document.getElementById("open-mobile-nav-modal");
-      const mobileNavModal = document.getElementById("mobile-nav-modal");
-      const closeMobileNav = document.getElementById("close-mobile-nav-modal");
-      const modalNavLink1 = document.getElementById(
-        "close-mobile-nav-modal-link"
-      );
-      const modalNavLink2 = document.getElementById(
-        "close-mobile-nav-modal-link2"
-      );
-      const modalNavLink3 = document.getElementById(
-        "close-mobile-nav-modal-link3"
-      );
-      const modalNavLink4 = document.getElementById(
-        "close-mobile-nav-modal-link4"
-      );
-      openMobileNav.addEventListener("click", () => {
-        mobileNavModal.style.display = "flex";
-      });
-      closeMobileNav.addEventListener("click", () => {
-        mobileNavModal.style.display = "none";
-      });
-      modalNavLink1.addEventListener("click", () => {
-        mobileNavModal.style.display = "none";
-      });
-      modalNavLink2.addEventListener("click", () => {
-        mobileNavModal.style.display = "none";
-      });
-      modalNavLink3.addEventListener("click", () => {
-        mobileNavModal.style.display = "none";
-      });
-      modalNavLink4.addEventListener("click", () => {
-        mobileNavModal.style.display = "none";
-      });
-      window.addEventListener("click", (e) => {
-        if (e.target === mobileNavModal) {
-          mobileNavModal.style.display = "none";
-        }
-      });
-
-      const loginModal = document.getElementById("login-modal");
-      const closeLoginModalBtn = document.getElementById(
-        "close-login-modal-btn"
-      );
-      const openLoginDesktopIcon = document.getElementById(
-        "open-login-modal-desktop"
-      );
-      const openLoginMobileIcon = document.getElementById(
-        "open-login-modal-mobile"
-      );
-      const openLoginCtaBtn = document.getElementById("open-login-modal-btn");
-      function openLoginModal() {
-        loginModal.style.display = "flex";
-      }
-      if (openLoginDesktopIcon)
-        openLoginDesktopIcon.addEventListener("click", openLoginModal);
-      if (openLoginMobileIcon)
-        openLoginMobileIcon.addEventListener("click", openLoginModal);
-      if (openLoginCtaBtn)
-        openLoginCtaBtn.addEventListener("click", openLoginModal);
-      closeLoginModalBtn.addEventListener("click", () => {
-        loginModal.style.display = "none";
-      });
-      window.addEventListener("click", (e) => {
-        if (e.target === loginModal) {
-          loginModal.style.display = "none";
-        }
-      });
-    </script>
+    <script type="text/javascript" src="login.js" defer></script>
   </body>
 </html>
