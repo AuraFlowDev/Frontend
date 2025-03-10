@@ -687,30 +687,6 @@ header {
   background-color: #249987;
 }
 
-/* ========== NEWS SECTION ========== */
-#news {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  background: transparent;
-}
-
-#news .news-content h2 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-#news .news-content p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin: 0 auto 2rem;
-  color: #ccc;
-}
-
 /* ========== FOOTER ========== */
 footer {
   scroll-snap-align: start;
