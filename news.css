@@ -3,6 +3,7 @@
   scroll-snap-align: start;
   text-align: center;
   padding: 2rem;
+  padding-bottom: 10rem;
 }
 
 .news-container {
