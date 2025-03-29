@@ -527,6 +527,8 @@ header {
 
 .last-card:nth-child(2) {
   flex: 1;
+  cursor: pointer;
+  background-color: green;
 }
 
 @media (max-width: 768px) {
@@ -687,6 +689,7 @@ footer {
   scroll-snap-align: start;
   display: flex;
   justify-content: center;
+  padding: 3rem;
 }
 
 .rounded-box {

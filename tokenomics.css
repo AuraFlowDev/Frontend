@@ -1,7 +1,3 @@
-body {
-  background: radial-gradient(circle at top left, #1c818b 10%, #0f1c2b 90%);
-}
-
 .token-details {
   min-height: 100vh;
   scroll-snap-align: start;
@@ -165,6 +161,7 @@ table.collateral tr:last-child td {
   color: #ffffff;
   text-transform: uppercase;
   opacity: 1;
+  margin-left: 3rem;
 }
 
 .div-top-right {
@@ -197,6 +194,129 @@ table.collateral tr:last-child td {
   border-top-left-radius: 25%;
   border-top: #ffffff solid 0.1rem;
   border-left: #ffffff solid 0.1rem;
+}
+
+/*==========Staking Section==========*/
+.staking-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  padding-top: 5rem;
+}
+
+.staking-section h2 {
+  text-align: left;
+  font: normal normal medium 25px/35px Raleway;
+  letter-spacing: 0.38px;
+  color: #ffffff;
+  opacity: 1;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
+  margin-left: 3rem;
+}
+
+/* Grid-Container */
+.staking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  align-items: end;
+  gap: 20px;
+  justify-content: space-evenly;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Karten-Styling */
+.staking-card {
+  grid-row: 2;
+
+  background: rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 2.688rem;
+  box-shadow: 0.125rem 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
+  text-align: left;
+  backdrop-filter: blur(1.875rem);
+  -webkit-backdrop-filter: blur(1.875rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.staking-card > p {
+  text-align: left;
+  font: normal normal 300 25px/35px Raleway;
+  letter-spacing: 0.38px;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.staking-card:nth-child(4) {
+  height: 410px;
+  grid-area: 4 / 1;
+}
+
+.staking-card:nth-child(5) {
+  height: 544px;
+  grid-area: 3 / 2 / 5;
+}
+.staking-card:nth-child(6) {
+  height: 662px;
+  grid-area: 2 / 3 / 5;
+}
+
+.staking-percentage {
+  grid-row: 1;
+  justify-self: center;
+
+  text-align: left;
+  font: normal normal bold 200px/70px Raleway;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 0.5;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  margin-bottom: 4rem;
+}
+
+.staking-percentage:nth-child(1) {
+  grid-area: 1 / 1 / 4;
+}
+
+.staking-percentage:nth-child(2) {
+  grid-area: 1 / 2 / 3;
+  padding-top: 7rem;
+}
+
+.staking-percentage:nth-child(3) {
+  grid-area: 1 / 3 / 2;
+}
+
+.staking-card p {
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.staking-label {
+  text-align: left;
+  font: normal normal 600 30px/35px Raleway;
+  letter-spacing: 0.45px;
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+/* Responsive Breakpoints (optional Feinjustierung) */
+@media (max-width: 768px) {
+  .staking-section {
+    padding: 20px 10px;
+  }
+
+  .staking-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 768px) {

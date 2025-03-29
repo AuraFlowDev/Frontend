@@ -48,6 +48,10 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
+document.getElementById("last-card").addEventListener("click", function () {
+  window.location.href = "tokenomics.html";
+});
+
 //cta Section
 
 function changeSite(siteName) {
