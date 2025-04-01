@@ -10,7 +10,7 @@ openLoginBtn.addEventListener("click", () => {
   modalOverlay.style.display = "flex";
 });
 
-function openLogin(){
+function openLogin() {
   modalOverlay.style.display = "flex";
 }
 
@@ -27,7 +27,6 @@ window.addEventListener("click", (e) => {
 });
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
   let errors = [];
 
   errors = getLoginFormErrors(
