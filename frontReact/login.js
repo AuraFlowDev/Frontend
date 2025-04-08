@@ -59,12 +59,15 @@ form.addEventListener("submit", (e) => {
         // Falls der Server einen Fehler meldet (z.B. 400 )
         throw new Error(`Server error: ${response.status}`);
       }
-      return response.text();
+      return response.json();
     })
     .then((data) => {
       // Hier kannst du den erfolgreichen Response verarbeiten
-      console.log("Erfolg:", data);
+      console.log("ErfolgJWT: ", data);
+
+      localStorage.setItem("jwt", data.token);
       // z.B. weiterleiten oder Meldung anzeigen
+      //window.location.href='index.html';
     })
     .catch((error) => {
       console.error("Fehler: ", error);

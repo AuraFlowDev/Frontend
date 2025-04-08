@@ -1,0 +1,22 @@
+.sidebar {
+    width: 285px;
+    height: 908px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 27px;
+    opacity: 1;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.side-link {
+    width: 285px;
+    height: 82px;
+    text-align: center;
+}
