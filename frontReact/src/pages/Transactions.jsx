@@ -1,12 +1,13 @@
-import Sidebar from "../components/Sidebar";
+import PackageCard from "../components/PackageCard";
 
-import NavHeader from "../components/NavHeader";
+
 
 
 function Transactions() {
     return (
         <>
-            <NavHeader />
+            <PackageCard packageID={{ title: "Title1", price: "20€" }} variant="dark" />
+            <PackageCard packageID={{ title: "Title1", price: "20€" }} variant="teal" />
         </>
     );
 }

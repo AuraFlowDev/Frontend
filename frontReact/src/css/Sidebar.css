@@ -4,7 +4,6 @@
     /* UI Properties */
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 27px;
-    opacity: 1;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
 }

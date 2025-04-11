@@ -1,13 +1,14 @@
-import Sidebar from "../components/Sidebar";
-
-import NavHeader from "../components/NavHeader";
-
+import "../css/Dashboard.css"
+import ContentCard from "../components/ContentCard.jsx";
 
 function Dashboard() {
     return (
         <>
-            
-            <p>Dashboard</p>
+            <div className="contents">
+                <ContentCard />
+                
+            </div>
+
         </>
     );
 }

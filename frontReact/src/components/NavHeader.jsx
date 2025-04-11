@@ -7,7 +7,7 @@ function NavHeader() {
             <div className="logo">AF</div>
             <div className="nav-container">
                 <ul className="nav-list">
-                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="Auraflow_Home.html">How It Works</a></li>
                     <li><a href="tokenomics.html">TOKENOMICS</a></li>
                     <li><a href="#fund">FUND</a></li>
                     <li><a href="news.html">NEWS</a></li>

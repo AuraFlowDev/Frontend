@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Sidebar.css"
 
-function Sidebar() {
+function Sidebar({className}) {
   return (
-      <div className="sidebar">
+      <div className={`sidebar ${className || ""}`}>
         <div className="sidebar-links">
             <Link to="/Dashboard" className="side-link">DASHBOARD</Link>
             <Link to="/Transactions" className="side-link">TRANSACTIONS</Link>

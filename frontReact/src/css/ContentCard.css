@@ -1,0 +1,9 @@
+.content-card {
+    width: 600px;
+    height: 464px;
+
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 26px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
