@@ -1,0 +1,35 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.site-wrapper{
+  margin-top: 5rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.site-wrapper .sidebar{
+  order: 1;
+}
+
+.main-content{
+  order: 2;
+  flex-grow: 2;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+

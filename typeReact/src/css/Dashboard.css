@@ -1,0 +1,9 @@
+.contents{
+    
+    border-radius: 3.125rem;
+
+    color: #fff;
+    width: 75rem;
+    display: flex;
+    flex-wrap: wrap;
+}

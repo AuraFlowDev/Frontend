@@ -1,3 +1,15 @@
+// Arrow to top
+const toTop = document.querySelector(".arrow-up");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    toTop.classList.add("active");
+  } else {
+    toTop.classList.remove("active");
+  }
+});
+
+//KEY FEATURES
 const nextSlideArrow = document.getElementById("topic-arrow");
 
 var slideIndex = 1;
@@ -33,4 +45,14 @@ function showSlides(n) {
   }
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
+}
+
+document.getElementById("last-card").addEventListener("click", function () {
+  window.location.href = "tokenomics.html";
+});
+
+//cta Section
+
+function changeSite(siteName) {
+  window.location.href = siteName;
 }
