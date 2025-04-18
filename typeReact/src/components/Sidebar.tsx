@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../css/Sidebar.css"
 
-function Sidebar({className}) {
+interface SidebarProps {
+  className?: string;
+}
+
+function Sidebar({ className }: SidebarProps) {
   return (
       <div className={`sidebar ${className || ""}`}>
         <div className="sidebar-links">

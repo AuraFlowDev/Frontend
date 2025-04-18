@@ -6,7 +6,7 @@ import NavHeader from "./components/NavHeader";
 
 //Import Pages
 import Dashboard from "./pages/Dashboard";
-import Transactions from "./pages/Transactions"; 
+import Transactions from "./pages/Transactions";
 import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import Affiliate from "./pages/Affiliate";
@@ -24,6 +24,7 @@ function App() {
         <Sidebar className="sidebar" />
         <main className="main-content">
           <Routes>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/Dashboard" element={<Dashboard />} />
             <Route path="/Transactions" element={<Transactions />} />
             <Route path="/Profile" element={<Profile />} />

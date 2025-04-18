@@ -2,7 +2,7 @@
     width: 285px;
     height: 908px;
     /* UI Properties */
-    background: #FFFFFF 0% 0% no-repeat padding-box;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 27px;
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
@@ -17,5 +17,16 @@
 .side-link {
     width: 285px;
     height: 82px;
-    text-align: center;
+
+    text-align: left;
+    font: normal normal normal 20px/80px Raleway;
+    letter-spacing: 0.3px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    border-radius: 27px;
+}
+
+.side-link:hover{
+    background: rgba(255, 255, 255, 0.5);
 }
