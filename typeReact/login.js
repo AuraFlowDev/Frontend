@@ -10,7 +10,7 @@ openLoginBtn.addEventListener("click", () => {
   modalOverlay.style.display = "flex";
 });
 
-function openLogin(){
+function openLogin() {
   modalOverlay.style.display = "flex";
 }
 
@@ -27,7 +27,6 @@ window.addEventListener("click", (e) => {
 });
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
   let errors = [];
 
   errors = getLoginFormErrors(
@@ -60,12 +59,15 @@ form.addEventListener("submit", (e) => {
         // Falls der Server einen Fehler meldet (z.B. 400 )
         throw new Error(`Server error: ${response.status}`);
       }
-      return response.text();
+      return response.json();
     })
     .then((data) => {
       // Hier kannst du den erfolgreichen Response verarbeiten
-      console.log("Erfolg:", data);
+      console.log("ErfolgJWT: ", data);
+
+      localStorage.setItem("jwt", data.token);
       // z.B. weiterleiten oder Meldung anzeigen
+      //window.location.href='index.html';
     })
     .catch((error) => {
       console.error("Fehler: ", error);

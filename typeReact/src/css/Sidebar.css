@@ -1,0 +1,32 @@
+.sidebar {
+    width: 285px;
+    height: 908px;
+    /* UI Properties */
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 27px;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+.side-link {
+    width: 285px;
+    height: 82px;
+
+    text-align: left;
+    font: normal normal normal 20px/80px Raleway;
+    letter-spacing: 0.3px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    opacity: 1;
+    border-radius: 27px;
+}
+
+.side-link:hover{
+    background: rgba(255, 255, 255, 0.5);
+}
